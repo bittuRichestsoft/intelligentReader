@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intelligent_reader_app/FS/EnterMobileNumber.dart';
 import 'package:intelligent_reader_app/View/LoginScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -58,8 +59,8 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       home: (sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
-          ? LoginScreen( )
-          : HomeScreen(),
+          ? /*LoginScreen*/EnterMobileNumber( )
+          : EnterMobileNumber(),
       debugShowCheckedModeBanner: false,
       /*builder: (context, child1) {
         return Container(

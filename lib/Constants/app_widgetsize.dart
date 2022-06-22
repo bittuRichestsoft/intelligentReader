@@ -35,4 +35,20 @@ class AppWidgetSize{
   static double icon_margin_top = 0.01;
 
 
+
+  static double appMaxTitleFontSize = 0.04;
+  static double appSubtitleSize = 0.03;
+  static double appContentFontSize = 0.025;
+  static double appContentSmallFontSize = 0.02;
+  static double appContentXSmallFontSize = 0.015;
+
+  static double appButtonBorderRadius = 0.08;
+
+  static double appLogoHeight = 0.15;
+
+  static double appButtonHeight = 0.07;
+  static double appButtonWidth = 0.6;
+
+  static double sideMargins = 0.05;
+
 }
