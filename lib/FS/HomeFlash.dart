@@ -1,11 +1,23 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:intelligent_reader_app/Constants/ImagesString.dart';
+import 'package:intelligent_reader_app/FS/FirstPage.dart';
+import 'package:intelligent_reader_app/FS/FourthPage.dart';
+import 'package:intelligent_reader_app/FS/SecondPage.dart';
+import 'package:intelligent_reader_app/FS/ThirdPage.dart';
 import 'package:intelligent_reader_app/View/HomeScreen.dart';
 import '../Constants/app_color.dart';
 import '../Constants/app_widgetsize.dart';
-
+int _selectedIndex = 0;
 class HomeFlash extends StatefulWidget {
+
+  HomeFlash(int index)
+  {
+    _selectedIndex = index;
+  }
+
   @override
   _homeFlashState createState() => _homeFlashState();
 
@@ -32,114 +44,95 @@ class _homeFlashState extends State<HomeFlash> {
         .of(context)
         .size;
 
-    return Scaffold(
-/*          backgroundColor: AppColor.appOrangeColor,
-          resizeToAvoidBottomInset: true,
-  //    appBar: AppBar(),
- */
-      body: Container(
-        margin: EdgeInsets.only(left: 10, right: 10),
-        height: sizeVal.height,
-        width: sizeVal.width,
-        child: Column(
-          children: [
-            headingTopLoc(),
-            headingSearchLoc(),
-          // gridServiceItem(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  headingTopLoc() {
-    return Container(height: sizeVal.height * 0.05,
-      color: AppColor.appOrangeColor,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [Image.asset(
-            'assets/images/png/home.png',
-            width: 30,
-            color: Colors.white,
-            height: 15,
-            fit: BoxFit.fill
-        ),
-          Text("Your Current Location",
-            style: TextStyle(
+    return Material(
+        child: Scaffold(
+                backgroundColor: AppColor.appOrangeColor,
+           /* resizeToAvoidBottomInset: true,
+   appBar: AppBar(backgroundColor: AppColor.appOrangeColor,toolbarHeight: kToolbarHeight,),*/
+    appBar:  AppBar(
+        backgroundColor: AppColor.appOrangeColor,
+        title: Text(
+          "Your Current Location",
+          style: TextStyle(
+             /* fontFamily: AppFontFamily.UBUNTU_MEDIUM,*/
               color: AppColor.appWhiteColor,
-              fontSize: MediaQuery
-                  .of(context)
-                  .size
-                  .height *
-                  0.02,
-            ),
+              fontSize: MediaQuery.of(context).size.height *
+                  AppWidgetSize.appContentFontSize),
+          textAlign: TextAlign.center,
+        ),
+        centerTitle: true,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+        //    _scaffoldKey.currentState!.openDrawer();
+          },
+          icon: SvgPicture.asset(ImagesString.SvgGroupLogin),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: SvgPicture.asset(ImagesString.SvgGroupLogin),
+            onPressed: () {
+ /*             Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationsScreen()));
+ */           },
           ),
-          Image.asset(
-              'assets/images/png/home.png',
-              width: 30,
-              color: Colors.white,
-              height: 15,
-              fit: BoxFit.fill
-          ),
-        ],),
+        ]
+    ),
+        body: Center(
+            child: Container(
+                child: _pages.elementAt(_selectedIndex))
+        ),
+          bottomNavigationBar: bottomNav(), ) );
+  }
+
+
+  Widget bottomNav() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      items:  <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: (_selectedIndex == 0) ? SvgPicture.asset(AppImages.homeBottomIconSelected):
+          SvgPicture.asset(AppImages.homeBottomIconUnselected),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: (_selectedIndex == 1)? SvgPicture.asset(AppImages.allRequestBottomIconSelected):
+          SvgPicture.asset(AppImage.allRequestBottomIconUnselected),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: (_selectedIndex == 2) ? SvgPicture.asset(AppImages.aboutMlaBottomIconSelected) :
+          SvgPicture.asset(AppImages.aboutMlaBottomIconUnSelected),
+          label: '',
+        ),
+
+        BottomNavigationBarItem(
+          icon: (_selectedIndex == 3) ? SvgPicture.asset(AppImages.profileBottomIconSelected):
+          SvgPicture.asset(AppImages.profileBottomIconUnselected),
+          label: '',
+        ),
+
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.amber[800],
+      onTap: _onItemTapped,
     );
   }
 
-  headingSearchLoc() {
-    return Container(height: sizeVal.height * 0.05,
-      color: AppColor.appOrangeColor,
-      child: Container(
-        margin: EdgeInsets.only(left: sizeVal.height * 0.05,
-            right: sizeVal.height * 0.05,
-            top: sizeVal.height * 0.01,
-            bottom: sizeVal.height * 0.01),
-        // color: AppColor.appWhiteColor,
-        decoration: BoxDecoration(
-          color: AppColor.appWhiteColor,
-          borderRadius: BorderRadius.all(Radius.circular(
-              MediaQuery
-                  .of(context)
-                  .size
-                  .width *
-                  AppWidgetSize.appButtonBorderRadius)),
-        ),
-        child: ListTile(
-          leading: Image.asset('assets/images/png/home.png',),
-          title: TextField(
-            controller: searchLocController,
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-              hintText: 'Search your Location',
-            ),
-          ),
-        ),
-      ),
-    );
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
-  gridServiceItem() {
-    return GridView.count(
-        crossAxisCount: 3,
-        crossAxisSpacing: 4.0,
-        mainAxisSpacing: 8.0,
-        children: List.generate(choices.length, (index) {
-          return Center(
-            child: Card(
-                color: Colors.orange,
-                child: Center(child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(child: Icon(choices[index].icon, size:50.0,  )),
-                      Text(choices[index].title!,  ),
-                    ]
-                ),
-                )
-            ),
-          );
-        }
-        )
-    );
-  }
+
+  static   final List<Widget> _pages = <Widget>[
+    FirstPage(),
+    SecondPage(),
+    ThirdPage(),
+    FourthPage()
+  ];
 
 }
 class Choice {
