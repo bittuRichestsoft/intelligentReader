@@ -4,6 +4,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Constants/ImagesString.dart';
 import '../Constants/app_color.dart';
 import '../Constants/app_widgetsize.dart';
 import 'HomeFlash.dart';
@@ -34,8 +35,7 @@ child: Center(
         children: [
           Text("Hi, Nice to meet you", style:  TextStyle(fontSize: sizeVal.width * 0.03),  ),
           Text("See services around you", style:  TextStyle(fontSize: sizeVal.width * 0.04), ),
-          Image.asset(
-              'img/britannia.jpg',
+          Image.asset(ImagesString.SvgGroupLogin,
               width: 300,
               height: 150,
               fit:BoxFit.fill
@@ -58,7 +58,7 @@ child: Center(
       onTap: (){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  HomeFlash()),
+          MaterialPageRoute(builder: (context) =>  HomeFlash(1)),
         );
         },
       child: Container(

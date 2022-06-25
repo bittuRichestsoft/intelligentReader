@@ -81,6 +81,7 @@ class _homeFlashState extends State<HomeFlash> {
     ),
         body: Center(
             child: Container(
+              height: sizeVal.height*9,
                 child: _pages.elementAt(_selectedIndex))
         ),
           bottomNavigationBar: bottomNav(), ) );
@@ -92,27 +93,26 @@ class _homeFlashState extends State<HomeFlash> {
       type: BottomNavigationBarType.fixed,
       items:  <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: (_selectedIndex == 0) ? SvgPicture.asset(AppImages.homeBottomIconSelected):
-          SvgPicture.asset(AppImages.homeBottomIconUnselected),
+          icon: (_selectedIndex == 0) ? SvgPicture.asset(/*AppImage.homeBottomIconSelected*/ImagesString.SvgGroupLogin,height: 50,width: 50,):
+          SvgPicture.asset(/*AppImages.homeBottomIconUnselected*/ImagesString.SvgGroupLogin, height: 50,width: 50,),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: (_selectedIndex == 1)? SvgPicture.asset(AppImages.allRequestBottomIconSelected):
-          SvgPicture.asset(AppImage.allRequestBottomIconUnselected),
+          icon: (_selectedIndex == 1)? SvgPicture.asset(/*AppImages.allRequestBottomIconSelected*/ImagesString.SvgGroupLogin,height: 50,width: 50,):
+          SvgPicture.asset(/*AppImage.allRequestBottomIconUnselected*/ImagesString.SvgGroupLogin,height: 50,width: 50,),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: (_selectedIndex == 2) ? SvgPicture.asset(AppImages.aboutMlaBottomIconSelected) :
-          SvgPicture.asset(AppImages.aboutMlaBottomIconUnSelected),
+          icon: (_selectedIndex == 2) ? SvgPicture.asset(ImagesString.SvgGroupLogin,height: 50,width: 50,/*AppImages.aboutMlaBottomIconSelected*/) :
+          SvgPicture.asset(ImagesString.SvgGroupLogin,height: 50,width: 50,/*AppImages.aboutMlaBottomIconUnSelected*/),
           label: '',
         ),
 
         BottomNavigationBarItem(
-          icon: (_selectedIndex == 3) ? SvgPicture.asset(AppImages.profileBottomIconSelected):
-          SvgPicture.asset(AppImages.profileBottomIconUnselected),
+          icon: (_selectedIndex == 3) ? SvgPicture.asset(ImagesString.SvgGroupLogin,height: 50,width: 50,/*AppImages.profileBottomIconSelected*/):
+          SvgPicture.asset(ImagesString.SvgGroupLogin,height: 50,width: 50,/*AppImages.profileBottomIconUnselected*/),
           label: '',
         ),
-
       ],
       currentIndex: _selectedIndex,
       selectedItemColor: Colors.amber[800],

@@ -6,6 +6,8 @@ import 'package:connectivity/connectivity.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intelligent_reader_app/Constants/app_strings.dart';
+import 'package:intelligent_reader_app/FS/EnterMobileNumber.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -127,7 +129,6 @@ class GlobalUtility {
   }
 
 
-/*
   void setSessionEmpty(BuildContext context)  async
   {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -138,7 +139,7 @@ class GlobalUtility {
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => LoginPage(),
+        builder: (BuildContext context) => EnterMobileNumber(),
       ),
           (route) => false,
     );
@@ -149,15 +150,16 @@ class GlobalUtility {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    prefs.setString(AppString.SESSION_ID,sessionId);
+/*
+    prefs.setString(AppStrings.SESSION_ID,sessionId);
     prefs.setString(AppString.PHONE,mobile);
     prefs.setString(AppString.USER_ID,userId);
     prefs.setString(AppString.COUNTRY_CODE,countryCode);
+*/
 
     debugPrint("sessionIdSaved $sessionId  phone<><> $mobile  user_id<><><> $userId  countryCode<><><><> $countryCode");
 
   }
-*/
 
 
   
