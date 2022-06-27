@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/intelligentReader.iml" filepath="$PROJECT_DIR$/.idea/intelligentReader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/intelligentReader_old.iml" filepath="$PROJECT_DIR$/.idea/intelligentReader_old.iml" />
     </modules>
   </component>
 </project>

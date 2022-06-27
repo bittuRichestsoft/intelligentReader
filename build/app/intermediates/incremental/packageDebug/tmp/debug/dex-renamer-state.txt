@@ -1,4 +1,0 @@
-#Sat Jun 25 19:08:31 IST 2022
-base.0=/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligentReader/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
