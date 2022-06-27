@@ -9,5 +9,4 @@
         android:gravity="fill"
         android:src="@drawable/splash_bg"/>
     </item>
-
 </layer-list>

@@ -1,3 +1,4 @@
+/*
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -25,9 +26,11 @@ class LoginScreen extends StatefulWidget {
 
 class _loginScreenState extends State<LoginScreen>   {
   LoginController registerController = Get.put(LoginController());
-  /*  String redirectUrl = 'https://www.linkedin.com/company/richestsoft/?originalSubdomain=in';
+  */
+/*  String redirectUrl = 'https://www.linkedin.com/company/richestsoft/?originalSubdomain=in';
     String clientId = '86uxvx5l6jtz6e';
-    String clientSecret = 'Wx57ql3jhsWVcrVu';*/
+    String clientSecret = 'Wx57ql3jhsWVcrVu';*//*
+
     String redirectUrl = 'https://www.youtube.com/callback';
     String clientId = '776rnw4e4izlvg';
     String clientSecret = 'rQEgboUHMLcQi59v';
@@ -39,8 +42,10 @@ class _loginScreenState extends State<LoginScreen>   {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
-    /*  GetX<LoginController>(builder: (controller)
-    {*/
+    */
+/*  GetX<LoginController>(builder: (controller)
+    {*//*
+
         Stack(
         children: [
           SvgPicture.asset('assets/images/svg/login_bg.svg',
@@ -142,16 +147,20 @@ context.widthPct(0.2)))),
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-             /* Center(
+             */
+/* Center(
                 child: SvgPicture.asset(AppImages.linkedIcon),
-              ),*/
+              ),*//*
+
               Text(
                 AppStrings.loginLinked,
-              /*  style: TextStyle(
+              */
+/*  style: TextStyle(
                     color: Colors.white,
                     fontFamily: AppStrings.rubikSemiBold,
                     fontSize: MediaQuery.of(context).size.height *
-                        AppWidgetSize.contentTextSize),*/
+                        AppWidgetSize.contentTextSize),*//*
+
               ),
               SizedBox(
                 width: 50,
@@ -283,3 +292,4 @@ context.widthPct(0.2)))),
       }
     }
 }
+*/

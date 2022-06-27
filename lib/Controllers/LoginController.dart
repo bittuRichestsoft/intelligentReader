@@ -1,3 +1,4 @@
+/*
 import 'package:get/state_manager.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/state_manager.dart';
@@ -7,17 +8,20 @@ import '../Constants/ApiUrl.dart';
 
 class LoginController extends GetxController {
 
+*/
 /*
   Rx<TextEditingController> name = Rx<TextEditingController>(TextEditingController());
   Rx<TextEditingController> lastName = Rx<TextEditingController>(TextEditingController());
   Rx<TextEditingController> email = Rx<TextEditingController>(TextEditingController());
   Rx<TextEditingController> password = Rx<TextEditingController>(TextEditingController());
-*/
+*//*
+
 
   Future<String>  hitLoginApi(Map map, url1) async
   {
     try {
-     /* var url = Uri.parse(
+     */
+/* var url = Uri.parse(
           "https://indeedtraining.in/intelligent-reader/public/api/loginWithLinkedIn");
       var response = await http.post(url, body: {
         'email': email.value.text.trim()            //'diksha@gmail.com'
@@ -30,7 +34,8 @@ class LoginController extends GetxController {
         'device_name': 'gjjkkjhj',
         'device_token': 'jjhbjb',
         'device_type': 'vghvhgvh'
-      });*/
+      });*//*
+
 
       var baseUrl = ApiUrl.BASEURL+ url1;
       var url = Uri.parse(baseUrl);
@@ -56,4 +61,4 @@ class LoginController extends GetxController {
   }
 
 
-}
+}*/

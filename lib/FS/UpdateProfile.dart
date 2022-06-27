@@ -329,14 +329,9 @@ List<String> lstGender = ['Mrs., Mr.'];
   }
 
 /*  complaintApi() async {
-
     var check_internet = await GlobalUtility().isConnected();
-
     var token = await GlobalUtility().getPrefValue(AppString.SESSION_ID);
-
     FocusScopeNode currentFocus = FocusScope.of(context);
-
-
     if (check_internet) {
 
       if(validate())

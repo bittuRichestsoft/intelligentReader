@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+
 import 'package:intelligent_reader_app/Constants/ImagesString.dart';
 import 'package:intelligent_reader_app/FS/FirstPage.dart';
 import 'package:intelligent_reader_app/FS/FourthPage.dart';

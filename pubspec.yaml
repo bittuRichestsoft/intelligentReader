@@ -30,8 +30,8 @@ dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^2.0.6
-  get: ^4.6.5
-  linkedin_login: ^2.2.1
+#  get: ^4.6.5
+#  linkedin_login: ^2.2.1
   sized_context: ^1.0.0+1
   flutter_svg: ^1.1.0
   fluttertoast: ^8.0.8
