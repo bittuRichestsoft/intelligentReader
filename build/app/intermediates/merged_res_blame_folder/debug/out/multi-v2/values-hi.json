@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\projects\\new service\\CloneFromReader\\intelligentReader_old\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hi\\values-hi.xml",
+            "outputFile": "/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\values-hi\\values-hi.xml",
+                    "source": "/Users/mac/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/values-hi/values-hi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

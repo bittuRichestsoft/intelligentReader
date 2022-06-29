@@ -4,12 +4,12 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
-6-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\connectivity-3.0.6\android\src\main\AndroidManifest.xml
+6-->/Users/mac/Desktop/All Used Projects/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-3.0.6/android/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="16" />
-7-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\connectivity-3.0.6\android\src\main\AndroidManifest.xml
+7-->/Users/mac/Desktop/All Used Projects/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-3.0.6/android/src/main/AndroidManifest.xml
 8
 9    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-9-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\connectivity-3.0.6\android\src\main\AndroidManifest.xml:3:3-76
-9-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\connectivity-3.0.6\android\src\main\AndroidManifest.xml:3:20-74
+9-->/Users/mac/Desktop/All Used Projects/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-3.0.6/android/src/main/AndroidManifest.xml:3:3-76
+9-->/Users/mac/Desktop/All Used Projects/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-3.0.6/android/src/main/AndroidManifest.xml:3:20-74
 10
 11</manifest>

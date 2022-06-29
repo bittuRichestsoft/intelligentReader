@@ -47,14 +47,13 @@ class _homeFlashState extends State<HomeFlash> {
     return Material(
         child: Scaffold(
                 backgroundColor: AppColor.appOrangeColor,
-           /* resizeToAvoidBottomInset: true,
-   appBar: AppBar(backgroundColor: AppColor.appOrangeColor,toolbarHeight: kToolbarHeight,),*/
-    appBar:  AppBar(
+
+  /*  appBar:  AppBar(
         backgroundColor: AppColor.appOrangeColor,
         title: Text(
           "Your Current Location",
           style: TextStyle(
-             /* fontFamily: AppFontFamily.UBUNTU_MEDIUM,*/
+             *//* fontFamily: AppFontFamily.UBUNTU_MEDIUM,*//*
               color: AppColor.appWhiteColor,
               fontSize: MediaQuery.of(context).size.height *
                   AppWidgetSize.appContentFontSize),
@@ -72,13 +71,13 @@ class _homeFlashState extends State<HomeFlash> {
           IconButton(
             icon: SvgPicture.asset(ImagesString.SvgGroupLogin),
             onPressed: () {
- /*             Navigator.push(
+ *//*             Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => NotificationsScreen()));
- */           },
+ *//*           },
           ),
         ]
-    ),
+    ),*/
         body: Center(
             child: Container(
               height: sizeVal.height*9,

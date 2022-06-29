@@ -85,12 +85,24 @@ shareWidget(),
     return ListTile(
         leading: const Icon(Icons.logout,),
         title: const Text("LogoutWidget "),
+
         onTap: () => print("LogoutWidget clicked")
     );
   }
 
 Widget UserInfo(){
-    return Row(
+   return ListTile(
+       trailing: GestureDetector(
+           onTap: (){
+             debugPrint("edit clicked");
+           },
+           child: Text("Edit")),
+       title: const Text("Name "),
+subtitle: Text("Mobile"),
+   //    onTap: () => print("LogoutWidget clicked")
+   );
+
+    /* return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
       children: [
@@ -109,6 +121,6 @@ alignment: Alignment.centerRight,           child: Text("Edit",
            textAlign: TextAlign.center,),
          ))
       ],
-    );
+    );*/
 }
 }

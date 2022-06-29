@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -75,16 +76,18 @@ class _firstPageState extends State<FirstPage> {
           ),
           body: SafeArea(
             child: Container(
-              //  margin: EdgeInsets.only(top: ),
-              color: Colors.white,
-              height: sizeVal.height,
-              width: sizeVal.width,
-              child: Column(
-                children: [
-                  headingSearchLoc(),
-                  gridServiceItem(),
-                ],
-              ),
+height: sizeVal.height,
+              child: ListView (
+                  children: [
+                  //  headingSearchLoc(),
+                      gridServiceItem(),
+                   adsVw(),
+                     adsVw(),
+                     adsVw(),
+                 viewMoreBtn(),
+                 lstVwBuilder(),
+                    /*adsVw(),*/ ],
+                ),
             ),
           ),
         )
@@ -93,7 +96,6 @@ class _firstPageState extends State<FirstPage> {
   headingSearchLoc() {
     return Container(height: sizeVal.height * 0.1,
       color: AppColor.appOrangeColor,
-
       child: Center(
         child: Container(
           height: sizeVal.height * 0.08,
@@ -131,26 +133,111 @@ class _firstPageState extends State<FirstPage> {
   }
 
   gridServiceItem() {
-    return  Container(
-      height: sizeVal.height*0.3,
-      child: GridView.count(
-        crossAxisCount: 4,
-        shrinkWrap: true ,
-        children:   List<Widget>.generate(12, (index) {
-          return   GridTile(
+    return  Expanded(
+      child: Container(
+ //     height: sizeVal.height*0.3,
+        child: GridView.count(
+          crossAxisCount: 4,
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
 
-            child:   Card(
+          children:   List<Widget>.generate(11, (index) {
+            return   GridTile(
+footer: Text("Footer"),
+              child:   GestureDetector(
 
-                color: Colors.blue.shade200,
+                child: Card(
+                    color: Colors.blue.shade200,
 
-                child:   Center(
-                  child:   Text('tile $index'),
-                )
-            ),
-          );
-        }),
+                    child:   Container(
+color: Colors.deepOrange,
+                      padding: EdgeInsets.all(8),
+                      child: Column(
+                        children: [
+                          CachedNetworkImage(
+                            imageUrl: "http://via.placeholder.com/200x150",
+                            imageBuilder: (context, imageProvider) => Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: imageProvider,
+                                    fit: BoxFit.cover,
+                                    colorFilter:
+                                    ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+                              ),
+                            ),
+                            placeholder: (context, url) => CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => Icon(Icons.error),
+                          ),
+                          Text('tile $index'),
+                        ],
+
+                      ),
+                    )
+                ),
+              ),
+            );
+          }),
+        ),
       ),
     );
+  }
+
+ Widget adsVw() {
+return Container(
+  height: sizeVal.height*0.15,
+margin: EdgeInsets.only(top: 10),
+color: Colors.purple,
+);
+
+  }
+
+Widget  lstVwBuilder() {
+
+return   Container(
+  height: sizeVal.height*0.15,
+  child: ListView.builder(
+     scrollDirection: Axis.horizontal,
+   // physics: NeverScrollableScrollPhysics(),
+       itemCount: 15,
+    itemBuilder: (BuildContext context, int index) => Card(
+      child: Center(child: Container(
+        width: sizeVal.width*0.6,
+        child:CachedNetworkImage(
+          imageUrl: "http://via.placeholder.com/200x150",
+          imageBuilder: (context, imageProvider) => Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                  colorFilter:
+                  ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+            ),
+          ),
+          placeholder: (context, url) => CircularProgressIndicator(),
+          errorWidget: (context, url, error) => Icon(Icons.error),
+        ),
+      )),
+    ),
+  ),
+);
+}
+
+  viewMoreBtn() {
+    return Container(
+      margin: EdgeInsets.only(left: sizeVal.width*0.1,right: sizeVal.width*0.1,top: sizeVal.height *0.03,bottom: sizeVal.height*0.03),
+decoration: BoxDecoration(
+  image: DecorationImage(
+    image: AssetImage(
+        ImagesString.button_filled_rounded),
+    fit: BoxFit.fill,
+  ),
+  shape: BoxShape.circle,
+),
+   child: Center(
+     child: Text("Search More"),
+   ),
+    );
+
   }
 
 }

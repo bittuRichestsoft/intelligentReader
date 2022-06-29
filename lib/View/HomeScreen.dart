@@ -19,8 +19,6 @@ class _homeScreenState extends State<HomeScreen>
 color: Colors.amber,
     height: MediaQuery.of(context).size.height,
     width: MediaQuery.of(context).size.width,
-
-    
   );
   
   }
