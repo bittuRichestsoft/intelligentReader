@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:connectivity/connectivity.dart';
-import 'package:device_info_plus/device_info_plus.dart';
+//import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intelligent_reader_app/Constants/app_strings.dart';
@@ -101,7 +101,7 @@ class GlobalUtility {
     return false;
   }
 
-  getDeviceName() async
+  /*getDeviceName() async
   {
     String mobilename="";
 
@@ -127,7 +127,7 @@ class GlobalUtility {
     return mobilename;
 
   }
-
+*/
 
   void setSessionEmpty(BuildContext context)  async
   {

@@ -5,35 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7722c86d-35de-4dca-bd85-2e225e7b4ed9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/FS/SubCategoryLst.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/intelligentReader_old.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/intelligentReader_old.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/banner_1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/banner_1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/bottom_home_selected.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/bottom_home_selected.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/bottom_profile_unselect.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/bottom_profile_unselect.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/bottom_reward_unslelect.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/bottom_reward_unslelect.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/botton_cal_unselect.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/botton_cal_unselect.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/demo_user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/demo_user.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/location_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/location_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/rectangle_rounded_empty.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/rectangle_rounded_empty.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/home/search_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/search_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/bottom_profile_selected.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/bottom_profile_selected.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/bottom_reward_selected.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/bottom_reward_selected.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/circle_grey_filled.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/circle_grey_filled.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/invite_friend.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/invite_friend.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/reward2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/reward2.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/rewards.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/rewards.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/social_1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/social_1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/social_2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/social_2.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/rewards/social_3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/svg/social_3.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/screen 2/bg_person.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/screen 2/button_filled_rounded.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/screen 2/flash_service_text.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/screen 2/rectangle.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utilities/GlobalUtility.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utilities/GlobalUtility.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +37,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images/svg" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
