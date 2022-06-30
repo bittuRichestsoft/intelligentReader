@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,16 +22,37 @@ class _firstPageState extends State<FirstPage> {
   var sizeVal;
   TextEditingController searchLocController = TextEditingController();
 
-  List<Choice> choices = <Choice>[
-    Choice(title: 'Home', icon: Icons.home),
-    Choice(title: 'Contact', icon: Icons.contacts),
-    Choice(title: 'Map', icon: Icons.map),
-    Choice(title: 'Phone', icon: Icons.phone),
-    Choice(title: 'Camera', icon: Icons.camera_alt),
-    Choice(title: 'Setting', icon: Icons.settings),
-    Choice(title: 'Album', icon: Icons.photo_album),
-    Choice(title: 'WiFi', icon: Icons.wifi),
+  int pageIndex=0,totalPage=4;
+
+  Timer? _timer;
+  PageController _pageController = PageController(
+    initialPage: 0,
+  );
+  List<String> widgetList = ['A', 'B', 'C'];
+  List<Widget> _demo=[
+    Container(height: 300,color: Colors.amber),
+    Container(height: 300,color: Colors.black),
+    Container(height: 300,color: Colors.blue),
+    Container(height: 300,color: Colors.green),
   ];
+
+ /* @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      if (pageIndex < (totalPage-1)) {
+        pageIndex++;
+      } else {
+        pageIndex = 0;
+      }
+
+      _pageController.animateToPage(
+        pageIndex,
+        duration: Duration(milliseconds: 350),
+        curve: Curves.easeIn,
+      );
+    });
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +62,7 @@ class _firstPageState extends State<FirstPage> {
 
     return Material(
         child: Scaffold(
-        //  backgroundColor: AppColor.appOrangeColor,
+          //  backgroundColor: AppColor.appOrangeColor,
           /* resizeToAvoidBottomInset: true,
    appBar: AppBar(backgroundColor: AppColor.appOrangeColor,toolbarHeight: kToolbarHeight,),*/
           appBar: AppBar(
@@ -61,7 +85,7 @@ class _firstPageState extends State<FirstPage> {
                 onPressed: () {
                   //    _scaffoldKey.currentState!.openDrawer();
                 },
-                icon: SvgPicture.asset(ImagesString.SvgGroupLogin),
+                icon: SvgPicture.asset(ImagesString.location_icon),
               ),
               actions: <Widget>[
                 IconButton(
@@ -81,12 +105,11 @@ class _firstPageState extends State<FirstPage> {
               child: ListView (
                 children: [
                   //  headingSearchLoc(),
-                  categoriesGrid(),
-
-                  viewMoreBtn(),
-                  guranteeText(),
-                  lstVwBuilder(),
-                  bestOffers(),
+                 // categoriesGrid(),
+              //    viewMoreBtn(),
+                //   guranteeText(),
+                //  bannerImages(),
+                   bestOffers(),
                   /*adsVw(),*/ ],
               ),
             ),
@@ -111,7 +134,7 @@ class _firstPageState extends State<FirstPage> {
                     .of(context)
                     .size
                     .width *
-                    AppWidgetSize.appButtonBorderRadius)),
+                    AppWidgetSize.appButtonBorderRadius),),
           ),
           padding: EdgeInsets.only(left: sizeVal.width * 0.03,right: sizeVal.width * 0.03),
           child: Center(
@@ -136,55 +159,32 @@ class _firstPageState extends State<FirstPage> {
   categoriesGrid() {
     return  Expanded(
       child: Container(
-        //     height: sizeVal.height*0.3,
-        child: GridView.count(
-          crossAxisCount: 4,
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-
-          children:   List<Widget>.generate(11, (index) {
-            return   GridTile(
-             // footer: Text("Footer"),
-              child:   GestureDetector(
-onTap: (){
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) =>   SubCategoryLst()),
-  );
-},
-                child: Card(
-                    color: Colors.blue.shade200,
-
-                    child:   Container(
-                      color: Colors.deepOrange,
-                      padding: EdgeInsets.all(8),
-                      child: Column(
-                        children: [
-                          CachedNetworkImage(
-                            imageUrl: "http://via.placeholder.com/200x150",
-                            imageBuilder: (context, imageProvider) => Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: imageProvider,
-                                    fit: BoxFit.cover,
-                                    colorFilter:
-                                    ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
-                              ),
-                            ),
-                            placeholder: (context, url) => CircularProgressIndicator(),
-                            errorWidget: (context, url, error) => Icon(Icons.error),
-                          ),
-                          Text('tile $index'),
-                        ],
-
-                      ),
-                    )
-                ),
+         //     height: sizeVal.height*0.3,
+        child: GridView(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            mainAxisSpacing: 0,
+            crossAxisSpacing: 0,
+          ),
+          physics: NeverScrollableScrollPhysics(),shrinkWrap: true,
+          children: List.generate(
+            5,
+                (index) => Container(
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: AppColor.appOrangeColor)
               ),
-
-            );
-          }),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(Icons.touch_app, size: 30, color: Colors.yellow[900],),
+                  SizedBox(height: 10,),
+                  Text("Touch", style: TextStyle(fontSize: 20),)
+                ],
+              ),
+            ),
+          ),
         ),
+
       ),
     );
   }
@@ -197,38 +197,33 @@ onTap: (){
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
 
-          children:   List<Widget>.generate(3, (index) {
-            return   GridTile(
-              footer: ListTile(
-                 title:  Text("Electrician at home "),
-                subtitle: Text("Upto 40% off"),
-                //    onTap: () => print("LogoutWidget clicked")
+          children:   widgetList.map((String value) {
+            return   Container(
+              height: 250.0,
+              color: Colors.green,
+              margin:  EdgeInsets.all(1.0),
+              child:  Column(
+                children:[
+                  CachedNetworkImage(
+                    imageUrl: "http://via.placeholder.com/250x150",
+                    fit: BoxFit.fill,
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                height: 120,  ),
+              Text (
+                value,
+                style:  const TextStyle(fontSize: 5.0,color: Colors.white),
               ),
-              child:   GestureDetector(
-                child: Card(
-                    color: Colors.blue.shade200,
-                    child:
-                          CachedNetworkImage(
-                            imageUrl: "http://via.placeholder.com/200x150",
-                            imageBuilder: (context, imageProvider) => Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: imageProvider,
-                                    fit: BoxFit.cover,
-                                    colorFilter:
-                                    ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
-                              ),
-                            ),
-                            placeholder: (context, url) => CircularProgressIndicator(),
-                            errorWidget: (context, url, error) => Icon(Icons.error),
-//                            width: sizeVal.height*0.1,
-                            height: sizeVal.height*0.45,
-                          ),
+              Text (
+                value,
+                style:  const TextStyle(fontSize: 5.0,color: Colors.white),
+              ),
 
-                ),
+                ]
+
               ),
             );
-          }),
+          }).toList(),
         ),
       ),
     );
@@ -236,50 +231,61 @@ onTap: (){
 
   Widget guranteeText() {
     return Container(
-      height: sizeVal.height*0.25,
-      margin: EdgeInsets.all( 10),
-      color: Colors.grey,
- child: ListTile(
-    title:  Text("100% safe services"),
-subtitle:    ListView.builder(
-      scrollDirection: Axis.vertical,
-//  physics: NeverScrollableScrollPhysics(),
-      itemCount: 4,
-      itemBuilder: (BuildContext context, int index) =>   Text("✓ this is sample $index")
-    ),
- )
+      //  height: sizeVal.height*0.25,
+        margin: EdgeInsets.all( 10),
+        color: Colors.grey,
+        child: ListTile(
+          title:  Text("100% safe services"),
+          subtitle:    Text("✓ this is sample 1\n✓ this is sample 1\n✓ this is sample 1\n✓ this is sample 1\n")
+        )
     );
 
   }
 
-  Widget  lstVwBuilder() {
+  Widget  bannerImages() {
 
-    return   Container(
-      height: sizeVal.height*0.15,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        // physics: NeverScrollableScrollPhysics(),
-        itemCount: 15,
-        itemBuilder: (BuildContext context, int index) => Card(
-          child: Center(child: Container(
-            width: sizeVal.width*0.6,
-            child:CachedNetworkImage(
-              imageUrl: "http://via.placeholder.com/200x150",
-              imageBuilder: (context, imageProvider) => Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
-                      colorFilter:
-                      ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+  return  Column(
+      children: [
+        Container(
+          height: sizeVal.width*0.2,
+          width: double.infinity,
+          child:PageView.builder(
+              itemCount: 4,
+              scrollDirection: Axis.horizontal,
+              controller: _pageController,
+              onPageChanged: (value) {
+                //When page change, start the controller
+
+              },
+              itemBuilder: (BuildContext context, int index) {
+
+                return Card(
+                    child: Center(child: Container(
+                    width: sizeVal.width*0.18,
+                    child:CachedNetworkImage(
+                    imageUrl: "http://via.placeholder.com/200x150",
+                    imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                        colorFilter:
+                        ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+                  ),
                 ),
-              ),
-              placeholder: (context, url) => CircularProgressIndicator(),
-              errorWidget: (context, url, error) => Icon(Icons.error),
-            ),
-          )),
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
+                )));
+              })
         ),
-      ),
+        SizedBox(height: 4,),
+        CarouselIndicator(
+          count: _demo.length,
+          color: Colors.deepOrange,
+          index: pageIndex,
+        ),
+      ],
     );
   }
 
@@ -298,7 +304,6 @@ subtitle:    ListView.builder(
                 AppWidgetSize.appButtonBorderRadius)),
       ),
       padding: EdgeInsets.only(left: sizeVal.width * 0.03,right: sizeVal.width * 0.03),
-
       child: Center(
         child: Text("Search More"),
       ),
