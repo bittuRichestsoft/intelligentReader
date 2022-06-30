@@ -1,9 +1,7 @@
 
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intelligent_reader_app/FS/UpdateProfile.dart';
 
 class FourthPage extends StatefulWidget {
   @override
@@ -12,37 +10,37 @@ class FourthPage extends StatefulWidget {
 }
 
 class _fourthPageState extends State<FourthPage> {
-var sizeVal;
+  var sizeVal;
   @override
   Widget build(BuildContext context) {
     sizeVal =MediaQuery.of(context).size;
     return Material(
-       child: Container(
-         height: sizeVal.height,
-         width: sizeVal.width,
-     child: ListView(
-       children: [
-         Container(
-           margin: EdgeInsets.all(sizeVal.width*0.03),
-           height: sizeVal.height*0.1,
-         child: UserInfo(),
-         ),
-     Divider(height: 2,),
-shareWidget(),
-         Divider(height: 2,),
-         referWidget(),
-         Divider(height: 2,),
-         inboxWidget(),
-         Divider(height: 2,),
-         scheduledBookingWidget(),
-         Divider(height: 2,),
-         moreServiceWidget(),
-         Divider(height: 2,),
-         LogoutWidget(),
-         Divider(height: 2,),
-],
-     ),
-       ) ,
+      child: Container(
+        height: sizeVal.height,
+        width: sizeVal.width,
+        child: ListView(
+          children: [
+            Container(
+              margin: EdgeInsets.all(sizeVal.width*0.03),
+              height: sizeVal.height*0.1,
+              child: UserInfo(),
+            ),
+            Divider(height: 2,),
+            shareWidget(),
+            Divider(height: 2,),
+            referWidget(),
+            Divider(height: 2,),
+            inboxWidget(),
+            Divider(height: 2,),
+            scheduledBookingWidget(),
+            Divider(height: 2,),
+            moreServiceWidget(),
+            Divider(height: 2,),
+            LogoutWidget(),
+            Divider(height: 2,),
+          ],
+        ),
+      ) ,
     );
   }
 
@@ -90,26 +88,27 @@ shareWidget(),
     );
   }
 
-Widget UserInfo(){
-   return ListTile(
-       trailing: GestureDetector(
-           onTap: (){
-             debugPrint("edit clicked");
-           },
-           child: Text("Edit")),
-       title: const Text("Name "),
-subtitle: Text("Mobile"),
-   //    onTap: () => print("LogoutWidget clicked")
-   );
+  Widget UserInfo(){
+    return ListTile(
+      trailing: GestureDetector(
+          onTap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>   UpdateProfile()),
+            );
+          },
+          child: Text("Edit")),
+      title: const Text("Name "),
+      subtitle: Text("Mobile"),
+      //    onTap: () => print("LogoutWidget clicked")
+    );
 
     /* return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
       children: [
         Flexible(flex: 8, child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
           Text("Edit",
             textAlign: TextAlign.left,style: TextStyle(fontWeight: FontWeight. bold),),
           Text("Mobile",
@@ -122,5 +121,5 @@ alignment: Alignment.centerRight,           child: Text("Edit",
          ))
       ],
     );*/
-}
+  }
 }
