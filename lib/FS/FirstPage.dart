@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intelligent_reader_app/FS/SubCategoryLst.dart';
 
 import '../Constants/ImagesString.dart';
 import '../Constants/app_color.dart';
@@ -37,7 +38,7 @@ class _firstPageState extends State<FirstPage> {
 
     return Material(
         child: Scaffold(
-          backgroundColor: AppColor.appOrangeColor,
+        //  backgroundColor: AppColor.appOrangeColor,
           /* resizeToAvoidBottomInset: true,
    appBar: AppBar(backgroundColor: AppColor.appOrangeColor,toolbarHeight: kToolbarHeight,),*/
           appBar: AppBar(
@@ -76,18 +77,18 @@ class _firstPageState extends State<FirstPage> {
           ),
           body: SafeArea(
             child: Container(
-height: sizeVal.height,
+              height: sizeVal.height,
               child: ListView (
-                  children: [
+                children: [
                   //  headingSearchLoc(),
-                      gridServiceItem(),
-                   adsVw(),
-                     adsVw(),
-                     adsVw(),
-                 viewMoreBtn(),
-                 lstVwBuilder(),
-                    /*adsVw(),*/ ],
-                ),
+                  categoriesGrid(),
+
+                  viewMoreBtn(),
+                  guranteeText(),
+                  lstVwBuilder(),
+                  bestOffers(),
+                  /*adsVw(),*/ ],
+              ),
             ),
           ),
         )
@@ -132,10 +133,10 @@ height: sizeVal.height,
     );
   }
 
-  gridServiceItem() {
+  categoriesGrid() {
     return  Expanded(
       child: Container(
- //     height: sizeVal.height*0.3,
+        //     height: sizeVal.height*0.3,
         child: GridView.count(
           crossAxisCount: 4,
           physics: NeverScrollableScrollPhysics(),
@@ -143,14 +144,19 @@ height: sizeVal.height,
 
           children:   List<Widget>.generate(11, (index) {
             return   GridTile(
-footer: Text("Footer"),
+             // footer: Text("Footer"),
               child:   GestureDetector(
-
+onTap: (){
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>   SubCategoryLst()),
+  );
+},
                 child: Card(
                     color: Colors.blue.shade200,
 
                     child:   Container(
-color: Colors.deepOrange,
+                      color: Colors.deepOrange,
                       padding: EdgeInsets.all(8),
                       child: Column(
                         children: [
@@ -175,6 +181,52 @@ color: Colors.deepOrange,
                     )
                 ),
               ),
+
+            );
+          }),
+        ),
+      ),
+    );
+  }
+  bestOffers() {
+    return  Expanded(
+      child: Container(
+        //     height: sizeVal.height*0.3,
+        child: GridView.count(
+          crossAxisCount: 2,
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+
+          children:   List<Widget>.generate(3, (index) {
+            return   GridTile(
+              footer: ListTile(
+                 title:  Text("Electrician at home "),
+                subtitle: Text("Upto 40% off"),
+                //    onTap: () => print("LogoutWidget clicked")
+              ),
+              child:   GestureDetector(
+                child: Card(
+                    color: Colors.blue.shade200,
+                    child:
+                          CachedNetworkImage(
+                            imageUrl: "http://via.placeholder.com/200x150",
+                            imageBuilder: (context, imageProvider) => Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: imageProvider,
+                                    fit: BoxFit.cover,
+                                    colorFilter:
+                                    ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+                              ),
+                            ),
+                            placeholder: (context, url) => CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => Icon(Icons.error),
+//                            width: sizeVal.height*0.1,
+                            height: sizeVal.height*0.45,
+                          ),
+
+                ),
+              ),
             );
           }),
         ),
@@ -182,60 +234,74 @@ color: Colors.deepOrange,
     );
   }
 
- Widget adsVw() {
-return Container(
-  height: sizeVal.height*0.15,
-margin: EdgeInsets.only(top: 10),
-color: Colors.purple,
-);
+  Widget guranteeText() {
+    return Container(
+      height: sizeVal.height*0.25,
+      margin: EdgeInsets.all( 10),
+      color: Colors.grey,
+ child: ListTile(
+    title:  Text("100% safe services"),
+subtitle:    ListView.builder(
+      scrollDirection: Axis.vertical,
+//  physics: NeverScrollableScrollPhysics(),
+      itemCount: 4,
+      itemBuilder: (BuildContext context, int index) =>   Text("✓ this is sample $index")
+    ),
+ )
+    );
 
   }
 
-Widget  lstVwBuilder() {
+  Widget  lstVwBuilder() {
 
-return   Container(
-  height: sizeVal.height*0.15,
-  child: ListView.builder(
-     scrollDirection: Axis.horizontal,
-   // physics: NeverScrollableScrollPhysics(),
-       itemCount: 15,
-    itemBuilder: (BuildContext context, int index) => Card(
-      child: Center(child: Container(
-        width: sizeVal.width*0.6,
-        child:CachedNetworkImage(
-          imageUrl: "http://via.placeholder.com/200x150",
-          imageBuilder: (context, imageProvider) => Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.cover,
-                  colorFilter:
-                  ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+    return   Container(
+      height: sizeVal.height*0.15,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        // physics: NeverScrollableScrollPhysics(),
+        itemCount: 15,
+        itemBuilder: (BuildContext context, int index) => Card(
+          child: Center(child: Container(
+            width: sizeVal.width*0.6,
+            child:CachedNetworkImage(
+              imageUrl: "http://via.placeholder.com/200x150",
+              imageBuilder: (context, imageProvider) => Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                      colorFilter:
+                      ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+                ),
+              ),
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
-          ),
-          placeholder: (context, url) => CircularProgressIndicator(),
-          errorWidget: (context, url, error) => Icon(Icons.error),
+          )),
         ),
-      )),
-    ),
-  ),
-);
-}
+      ),
+    );
+  }
 
   viewMoreBtn() {
     return Container(
+      width: sizeVal.width,
+      height: sizeVal.height *0.08 ,
       margin: EdgeInsets.only(left: sizeVal.width*0.1,right: sizeVal.width*0.1,top: sizeVal.height *0.03,bottom: sizeVal.height*0.03),
-decoration: BoxDecoration(
-  image: DecorationImage(
-    image: AssetImage(
-        ImagesString.button_filled_rounded),
-    fit: BoxFit.fill,
-  ),
-  shape: BoxShape.circle,
-),
-   child: Center(
-     child: Text("Search More"),
-   ),
+      decoration: BoxDecoration(
+        color: AppColor.appOrangeColor,
+        borderRadius: BorderRadius.all(Radius.circular(
+            MediaQuery
+                .of(context)
+                .size
+                .width *
+                AppWidgetSize.appButtonBorderRadius)),
+      ),
+      padding: EdgeInsets.only(left: sizeVal.width * 0.03,right: sizeVal.width * 0.03),
+
+      child: Center(
+        child: Text("Search More"),
+      ),
     );
 
   }
