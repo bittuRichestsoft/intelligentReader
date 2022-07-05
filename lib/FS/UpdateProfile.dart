@@ -33,7 +33,7 @@ List<String> lstGender = ['Mrs., Mr.'];
       appBar: AppBar(
         backgroundColor: AppColor.appOrangeColor,
         title: Text(
-          "Raise Complaint",
+          "Update Profile",
           style: TextStyle(
               fontFamily: AppFontFamily.UBUNTU_MEDIUM,
               color: AppColor.appWhiteColor,
@@ -44,10 +44,10 @@ List<String> lstGender = ['Mrs., Mr.'];
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.of(context).pop();
-          },
-          icon: SvgPicture.asset(ImagesString.SvgGroupLogin),
+          }  ,
         ),
       ),
       backgroundColor: AppColor.appWhiteColor,

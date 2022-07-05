@@ -11,16 +11,28 @@ import '../Constants/app_widgetsize.dart';
 
 
 class OTPVerify extends StatefulWidget {
+  String number= "";
+  OTPVerify(holdNumber){
+    number=holdNumber;
+  }
+
   @override
-  _oTPVerifyState createState() => _oTPVerifyState();
+  _oTPVerifyState createState() => _oTPVerifyState(number);
 }
 
 class _oTPVerifyState extends State<OTPVerify> {
+
   var sizeVal;
   OtpFieldController otpController = OtpFieldController();
   String completeOtp = "";
   var countryCodeValue;
   bool isNumberEnabled = true;
+  String phnNmbr="";
+
+  _oTPVerifyState(holdNumber){
+    phnNmbr=holdNumber;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +115,7 @@ class _oTPVerifyState extends State<OTPVerify> {
                           Text("You will got an OTP on entered mobile number",
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                fontSize: sizeVal.width * 0.02,
+                                fontSize: sizeVal.width * 0.03,
                               )),
                         ),
                         sendOtpButton()

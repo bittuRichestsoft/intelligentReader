@@ -1,9 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intelligent_reader_app/Constants/app_strings.dart';
 
+import '../Constants/ApiUrl.dart';
 import '../Constants/app_color.dart';
 import '../Constants/app_widgetsize.dart';
+import '../Utilities/GlobalUtility.dart';
+import '../webApi/WebApi.dart';
 import 'OTPVerify.dart';
 
 class EnterMobileNumber extends StatefulWidget {
@@ -94,7 +100,7 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
                           Text("You will got an OTP on entered mobile number",
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                fontSize: sizeVal.width * 0.02,
+                                fontSize: sizeVal.width * 0.03,
                               )),
                     ),
                     sendOtpButton()
@@ -234,12 +240,11 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
   Widget sendOtpButton() {
     return GestureDetector(
       onTap: () {
-       /* sendOtpApi();*/
+//        sendOtpApi();
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>   OTPVerify()),
+          MaterialPageRoute(builder: (context) =>   OTPVerify(phone_controller.text)),
         );
-
       },
       child: Visibility(
         visible: true,
@@ -265,5 +270,47 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
       ),
     );
   }
+  sendOtpApi( ) async {
 
+    var check_internet = await GlobalUtility().isConnected();
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    if (check_internet) {
+      Map map = {
+        "phone": phone_controller.text,
+        "country_code": countryCodeValue,
+      };
+
+      GlobalUtility().showLoaderDialog(context);
+
+      if (!currentFocus.hasPrimaryFocus) {
+        currentFocus.unfocus();
+      }
+
+      String apiResponse = await WebApi().send_request_with_map(map, ApiUrl.SEND_OTP);
+      setState(() {
+        Navigator.of(context).pop();
+        var jsondata = json.decode(apiResponse);
+        String message = jsondata['message'];
+        int status = jsondata['status'];
+        if (status == 200) {
+
+          GlobalUtility().showToast(message);
+        } else if (status == 400) {
+
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => OTPVerify(phone_controller.text)),
+          );
+          // GlobalUtility().showSnackBar(message, context);
+        } else if (status == 403) {
+          GlobalUtility().setSessionEmpty(context);
+        } else {
+          GlobalUtility().showSnackBar(message, context);
+        }
+      });
+    } else {
+      GlobalUtility()
+          .showSnackBar(AppStrings.PleaseCheckInternetConnection, context);
+    }
+  }
 }

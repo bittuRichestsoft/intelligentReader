@@ -35,13 +35,16 @@ child: Center(
         children: [
           Text("Hi, Nice to meet you", style:  TextStyle(fontSize: sizeVal.width * 0.03),  ),
           Text("See services around you", style:  TextStyle(fontSize: sizeVal.width * 0.04), ),
-          Image.asset(ImagesString.SvgGroupLogin,
+         /* Image.asset(ImagesString.SvgGroupLogin,
               width: 300,
               height: 150,
               fit:BoxFit.fill
+          ),*/
+          Icon(Icons.search,color: AppColor.appHintColor, size: 60,
+
           ),
     continueButton(),
-    SizedBox(height: sizeVal.height*0.02,),
+//    SizedBox(height: sizeVal.height*0.02,),
     searchMoreServices(),
         ],
     ),
@@ -58,15 +61,18 @@ child: Center(
       onTap: (){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  HomeFlash(1)),
+          MaterialPageRoute(builder: (context) =>  HomeFlash(0)),
         );
         },
       child: Container(
         alignment: Alignment.center,
+margin: EdgeInsets.all(sizeVal.height*0.02,),
+/*
         width: MediaQuery
             .of(context)
             .size
             .width * AppWidgetSize.appButtonWidth,
+*/
         height:
         MediaQuery
             .of(context)
@@ -113,11 +119,11 @@ child: Center(
   searchMoreServices() {
     return  Container(
       alignment: Alignment.center,
-
-      width: MediaQuery
+        margin: EdgeInsets.all(sizeVal.height*0.02,),
+     /* width: MediaQuery
           .of(context)
           .size
-          .width * AppWidgetSize.appButtonWidth,
+          .width * AppWidgetSize.appButtonWidth,*/
       height:
       MediaQuery
           .of(context)
