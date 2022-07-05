@@ -15,7 +15,7 @@ class ImagesString {
   static String bottom_profile_unselect= 'assets/images/svg/bottom_profile_unselect.svg';
   static String bottom_reward_selected= 'assets/images/svg/bottom_reward_selected.png';
   static String bottom_reward_unslelect= 'assets/images/svg/bottom_reward_unslelect.svg';
-  static String botton_cal_unselect= 'assets/images/svg/botton_cal_unselect.svg';
+  static String bottom_cal_unselect= 'assets/images/svg/bottom_cal_unselect.svg';
 
   static String button_filled_rounded= 'assets/images/svg/button_filled_rounded.svg';
   static String circle_grey_filled= 'assets/images/svg/circle_grey_filled.svg';

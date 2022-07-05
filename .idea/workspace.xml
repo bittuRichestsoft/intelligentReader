@@ -3370,7 +3370,13 @@
       <change beforePath="$PROJECT_DIR$/build_old/shared_preferences_android/outputs/logs/manifest-merger-release-report.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build_old/shared_preferences_android/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build_old/shared_preferences_android/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/FS/ChooseLocation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FS/ChooseLocation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/FS/EnterMobileNumber.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FS/EnterMobileNumber.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/FS/FirstPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FS/FirstPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/FS/HomeFlash.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FS/HomeFlash.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/FS/OTPVerify.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FS/OTPVerify.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/FS/ThirdPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FS/ThirdPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/FS/UpdateProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FS/UpdateProfile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -63,8 +63,8 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       home: (sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
-          ? /*EnterMobileNumber*//*HomeFlash(1)*/FourthPage()
-          : /*HomeFlash(1)*/FourthPage(),
+          ? /*EnterMobileNumber*//*HomeFlash(1)*/EnterMobileNumber()
+          : /*HomeFlash(1)*/EnterMobileNumber(),
       debugShowCheckedModeBanner: false,
       /*builder: (context, child1) {
         return Container(
