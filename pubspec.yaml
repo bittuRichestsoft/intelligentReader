@@ -42,6 +42,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   cached_network_image: ^3.2.1
+  carousel_indicator: ^1.0.6
+  http: ^0.13.4
+  flutter_share_me: ^1.3.0    #ios setup pending
+  webview_flutter: ^3.0.4
 
 dev_dependencies:
   flutter_test:
@@ -79,7 +83,7 @@ flutter:
     - assets/images/svg/bottom_profile_unselect.svg
     - assets/images/svg/bottom_reward_selected.png
     - assets/images/svg/bottom_reward_unslelect.svg
-    - assets/images/svg/botton_cal_unselect.svg
+    - assets/images/svg/bottom_cal_unselect.svg
     - assets/images/svg/button_filled_rounded.svg
     - assets/images/svg/circle_grey_filled.svg
     - assets/images/svg/demo_user.svg

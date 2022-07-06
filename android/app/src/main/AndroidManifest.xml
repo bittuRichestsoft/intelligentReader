@@ -3,9 +3,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:label="Intelligent Reader App"
+        android:label="FS"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/fs_bg">
 
         <activity
             android:name=".MainActivity"
@@ -35,5 +35,18 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+<!--/////// social share me code start-->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider[facebook_app_id]"
+            android:exported="false" />
+        <!--///////social share me code end-->
+
+
     </application>
 </manifest>

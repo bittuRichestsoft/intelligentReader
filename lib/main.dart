@@ -5,6 +5,8 @@ import 'package:intelligent_reader_app/FS/FirstPage.dart';
 import 'package:intelligent_reader_app/FS/FourthPage.dart';
 import 'package:intelligent_reader_app/FS/HomeFlash.dart';
 import 'package:intelligent_reader_app/FS/SubCategoryLst.dart';
+import 'package:intelligent_reader_app/FS/ThirdPage.dart';
+import 'package:intelligent_reader_app/FS/UpdateProfile.dart';
 import 'package:intelligent_reader_app/View/LoginScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -63,21 +65,10 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       home: (sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
-          ? /*EnterMobileNumber*//*HomeFlash(1)*/EnterMobileNumber()
-          : /*HomeFlash(1)*/EnterMobileNumber(),
+          ? /*EnterMobileNumber*//*HomeFlash(1)*/UpdateProfile()
+          : /*HomeFlash(1)*/UpdateProfile(),
       debugShowCheckedModeBanner: false,
-      /*builder: (context, child1) {
-        return Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width ,
-          decoration: const BoxDecoration(
-            image:   DecorationImage(
-              image:   AssetImage("images/png/splash.png"),
-              fit: BoxFit.fill,
-            )
-          ),
-        );
-      },*/);
+      );
   }
 
 //background

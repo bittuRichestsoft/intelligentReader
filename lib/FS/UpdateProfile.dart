@@ -7,6 +7,7 @@ import 'package:intelligent_reader_app/Constants/ImagesString.dart';
 import 'package:intelligent_reader_app/Constants/app_color.dart';
 import 'package:intelligent_reader_app/Constants/app_strings.dart';
 import 'package:intelligent_reader_app/Constants/app_widgetsize.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../Constants/AppFontFamily.dart';
 import '../Utilities/GlobalUtility.dart';
@@ -23,7 +24,9 @@ class _updateProfileState extends State<UpdateProfile>{
   TextEditingController subjectController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
-List<String> lstGender = ['Mrs., Mr.'];
+List<String> lstGender = ['Mrs.', 'Mr.'];
+  var countryCodeValue;
+  TextEditingController name_controller = TextEditingController();
 
 
   var selectedComplaintType;
@@ -66,44 +69,34 @@ List<String> lstGender = ['Mrs., Mr.'];
             left: MediaQuery.of(context).size.width * AppWidgetSize.sideMargins,
             right: MediaQuery.of(context).size.width * AppWidgetSize.sideMargins,
           ),
-          child: ListView(
+          child: /*ListView(
             children: [
+        // nameGender(),
+          //  subject(),
+         //     complaintType(),
+        //      description(),
+          //    submitButton(),
               Container(
-                margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.03),
-                child: Text(
-                  "Complaint Form",
-                  style: TextStyle(
-                      fontFamily: AppFontFamily.UBUNTU_MEDIUM,
-                      fontSize: MediaQuery.of(context).size.height *
-                          AppWidgetSize.appTitleFontSize),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01,
-                    bottom: MediaQuery.of(context).size.height * 0.02),
-                child: Text(
-                  "Lorem ipsum is simply dummy text of the printing",
-                  style: TextStyle(
-                      fontFamily: AppFontFamily.UBUNTU_REGULAR,
-                      color: AppColor.appBlackColor,
-                      fontSize: MediaQuery.of(context).size.height *
-                          AppWidgetSize.appContentSmallFontSize),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Divider(
-                color: AppColor.linkedInBtn,
-              ),
-              subject(),
-              complaintType(),
-              description(),
-              submitButton()
-
+                height: 400,
+             child:  WebView(
+                   initialUrl: Uri.dataFromString('<html><body><iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></body></html>', mimeType: 'text/html').toString(),
+                   javascriptMode: JavascriptMode.unrestricted,
+                 ),
+              )
             ],
-          ),
+          ),*/
+          Container(
+            height: 400,
+            width: MediaQuery.of(context).size.width,
+            child:  WebView(
+              initialUrl: Uri.dataFromString('<html><body><a class="twitter-timeline" href="https://twitter.com/jeevanjyot20?ref_src=twsrc%5Etfw">Tweets by jeevanjyot20</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></iframe></body></html>', mimeType: 'text/html').toString(),
+/*<a class="twitter-timeline" href="https://twitter.com/jeevanjyot20?ref_src=twsrc%5Etfw">Tweets by jeevanjyot20</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>*/
+              javascriptMode: JavascriptMode.unrestricted,
+          onPageStarted: (strUrl){
+                debugPrint("strurl= ${strUrl}");
+          },
+            ),
+          )
         ),
       ),
     );
@@ -112,19 +105,43 @@ List<String> lstGender = ['Mrs., Mr.'];
   Widget subject() {
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
-      child:  TextFormField(
-        controller: subjectController,
-        style: TextStyle(color: Colors.black,fontFamily: AppFontFamily.UBUNTU_MEDIUM),
-        decoration:  InputDecoration(
-          enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)),
-          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)),
-          border: UnderlineInputBorder(),
-          fillColor: AppColor.appHintColor,
-          labelText: 'Subject',
-          labelStyle: TextStyle(
-              fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentSmallFontSize,
-              color: AppColor.appHintColor,
-              fontFamily: AppFontFamily.UBUNTU_REGULAR),
+      child: TextField(
+        controller: name_controller,
+        // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+        keyboardType: TextInputType.number,
+        textInputAction: TextInputAction.done,
+        style: TextStyle(
+          color: Colors
+              .black, /*fontSize: MediaQuery.of(context).size.height * 0.02*/
+        ),
+
+        decoration: InputDecoration(
+          //  border: InputBorder.none,
+          hintText: 'Phone Number',
+          fillColor: Colors.black,
+          hintStyle: TextStyle(
+            color: Colors.grey.withOpacity(0.5),
+            /*  fontSize: MediaQuery.of(context).size.height * 0.02,*/
+            /* fontFamily: AppFontFamily.UBUNTU_MEDIUM*/
+          ),
+          disabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: AppColor.appBlackColor),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: AppColor.appBlackColor),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: AppColor.appBlackColor),
+          ),
+          /*  suffixIcon: Visibility(
+                      visible: isSendOtpVisible,
+                      child: IconButton(
+                        padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.1),
+                        onPressed: () {},
+                        icon: SvgPicture.asset(AppImages.editPencilIcon),
+                      ),
+                    ),*/
         ),
       ),
     );
@@ -397,5 +414,125 @@ List<String> lstGender = ['Mrs., Mr.'];
   }
 
 
+  Widget nameGender() {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.07,
+      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Flexible(
+            flex: 2,
+            child: DropdownButtonFormField(
+                focusColor: AppColor.appOrangeColor,
+                isDense: true,
+                isExpanded: true,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  labelStyle: TextStyle(
+                    color: Colors.black,
+                    /*fontFamily: AppFontFamily.UBUNTU_MEDIUM,*/
+                    /*fontSize: MediaQuery.of(context).size.height *
+                        AppWidgetSize.appXXSmallContentTitleFontSize*/
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColor.appBlackColor)),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColor.appBlackColor),
+                  ),
+                  disabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColor.appBlackColor),
+                  ),
+                ),
+                hint: Text(lstGender[0],
+                    style: TextStyle(
+                      color: Colors.grey,
+                      /*  fontFamily: AppFontFamily.UBUNTU_MEDIUM,*/
+                    ),
+                    textAlign: TextAlign.right),
+                icon: Padding(
+                  padding: EdgeInsets.only(
+                      right: MediaQuery.of(context).size.width * 0.03),
+                  child: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+                ),
+                items: lstGender.map((String country) {
+                  return DropdownMenuItem<String>(
+                    value: country,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          country,
+                          style: TextStyle(
+                            color: Colors.black,
+                            /*    fontFamily: AppFontFamily.UBUNTU_LIGHT,*/
+                          ),
+                        ),
+                        //  Image.network(category.flag,height: 20,width: 20,)
+                      ],
+                    ),
+                  );
+                }).toList(),
+                value: countryCodeValue,
+                onChanged: (valueSelectedByUser) {
+                  setState(() {});
+                }),
+          ),
+       SizedBox(width: 15,),
+          Flexible(
+            flex: 6,
+            child: Row(
+              children: [
+                Flexible(
+                  flex: 5,
+                  child: TextField(
+                    controller: name_controller,
+                    // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    keyboardType: TextInputType.number,
+                    textInputAction: TextInputAction.done,
+                    style: TextStyle(
+                      color: Colors
+                          .black, /*fontSize: MediaQuery.of(context).size.height * 0.02*/
+                    ),
+
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+                      hintText: 'Phone Number',
+                      fillColor: Colors.black,
+                      hintStyle: TextStyle(
+                        color: Colors.grey.withOpacity(0.5),
+                        /*  fontSize: MediaQuery.of(context).size.height * 0.02,*/
+                        /* fontFamily: AppFontFamily.UBUNTU_MEDIUM*/
+                      ),
+                      disabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppColor.appBlackColor),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppColor.appBlackColor),
+                      ),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppColor.appBlackColor),
+                      ),
+                      /*  suffixIcon: Visibility(
+                      visible: isSendOtpVisible,
+                      child: IconButton(
+                        padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.1),
+                        onPressed: () {},
+                        icon: SvgPicture.asset(AppImages.editPencilIcon),
+                      ),
+                    ),*/
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
 }
