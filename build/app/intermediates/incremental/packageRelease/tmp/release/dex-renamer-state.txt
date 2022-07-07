@@ -1,0 +1,4 @@
+#Fri Jul 01 19:23:20 IST 2022
+base.0=/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

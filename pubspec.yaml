@@ -110,27 +110,60 @@ flutter:
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: UbuntuBold
+    - family: RobotoBlack
       fonts:
-        - asset: assets/font/DMSans-Bold.ttf
+        - asset: assets/font/Roboto-Black.ttf
 
-#    - family: UbuntuLight
-#      fonts:
-#        - asset: assets/font/Ubuntu-Light.ttf
+    - family: RobotoBlackItalic
+      fonts:
+        - asset: assets/font/Roboto-BlackItalic.ttf
 
-#    - family: UbuntuMedium
-#      fonts:
-#        - asset: assets/font/Ubuntu-Medium.ttf
+    - family: RobotoBold
+      fonts:
+        - asset: assets/font/Roboto-Bold.ttf
 
-#    - family: UbuntuRegular
-#      fonts:
-#        - asset: assets/font/Ubuntu-Regular.ttf
-  # For details regarding fonts from package dependencies,
+    - family: RobotoBoldItalic
+        fonts:
+            - asset: assets/font/Roboto-BoldItalic.ttf
+
+    - family: RobotoItalic
+      fonts:
+        - asset: assets/font/Roboto-Italic.ttf
+
+    - family: RobotoLight
+      fonts:
+        - asset: assets/font/Roboto-Light.ttf
+
+    - family: RobotoLightItalic
+      fonts:
+        - asset: assets/font/Roboto-LightItalic.ttf
+
+    - family: RobotoMedium
+      fonts:
+        - asset: assets/font/Roboto-LightMedium.ttf
+
+    - family: RobotoMediumItalic
+      fonts:
+        - asset: assets/font/Roboto-MediumItalic.ttf
+
+    - family: RobotoRegular
+      fonts:
+        - asset: assets/font/Roboto-Regular.ttf
+
+    - family: RobotoThin
+      fonts:
+        - asset: assets/font/Roboto-Thin.ttf
+
+    - family: RobotoThinkItalic
+      fonts:
+        - asset: assets/font/Roboto-ThinkItalic.ttf
+
+
+      # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

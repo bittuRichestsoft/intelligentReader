@@ -15,63 +15,222 @@
 15    <uses-permission android:name="android.permission.INTERNET" />
 15-->/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/android/app/src/main/AndroidManifest.xml:3:5-66
 15-->/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/android/app/src/main/AndroidManifest.xml:3:22-64
-16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->[:connectivity] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/connectivity/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
-16-->[:connectivity] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/connectivity/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-81
+16-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-78
 17
-18    <application
-19        android:name="android.app.Application"
-20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-20-->[androidx.core:core:1.6.0] /Users/mac/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
-21        android:debuggable="true"
-22        android:icon="@mipmap/ic_launcher"
-23        android:label="Intelligent Reader App" >
-24        <activity
-25            android:name="com.example.intelligent_reader_app.MainActivity"
-26            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-27            android:exported="true"
-28            android:hardwareAccelerated="true"
-29            android:launchMode="singleTop"
-30            android:theme="@style/LaunchTheme"
-31            android:windowSoftInputMode="adjustResize" >
-32
-33            <!--
-34                 Specifies an Android theme to apply to this Activity as soon as
-35                 the Android process has started. This theme is visible to the user
-36                 while the Flutter UI initializes. After that, this theme continues
-37                 to determine the Window background behind the Flutter UI.
-38            -->
-39            <meta-data
-40                android:name="io.flutter.embedding.android.NormalTheme"
-41                android:resource="@style/NormalTheme" />
-42
-43            <intent-filter>
-44                <action android:name="android.intent.action.MAIN" />
-45
-46                <category android:name="android.intent.category.LAUNCHER" />
-47            </intent-filter>
-48        </activity>
-49
-50        <!--
-51             Don't delete the meta-data below.
-52             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-53        -->
-54        <meta-data
-55            android:name="flutterEmbedding"
-56            android:value="2" />
-57
-58        <uses-library
-58-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-59            android:name="androidx.window.extensions"
-59-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-60            android:required="false" />
-60-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-61        <uses-library
-61-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-62            android:name="androidx.window.sidecar"
-62-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-63            android:required="false" />
-63-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-64    </application>
-65
-66</manifest>
+18    <queries>
+18-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-14:15
+19        <package android:name="com.instagram.android" />
+19-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-57
+19-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:13:18-54
+20    </queries>
+21
+22    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+23-->[:connectivity] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/connectivity/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
+23-->[:connectivity] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/connectivity/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
+24    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+24-->[com.android.installreferrer:installreferrer:1.0] /Users/mac/.gradle/caches/transforms-3/36ca33fc38238ef17c66f5c3a867f791/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:9:5-110
+24-->[com.android.installreferrer:installreferrer:1.0] /Users/mac/.gradle/caches/transforms-3/36ca33fc38238ef17c66f5c3a867f791/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:9:22-107
+25
+26    <application
+27        android:name="android.app.Application"
+28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+28-->[androidx.core:core:1.6.0] /Users/mac/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
+29        android:debuggable="true"
+30        android:icon="@drawable/fs_bg"
+31        android:label="FS"
+32        android:supportsRtl="true" >
+32-->[com.facebook.android:facebook-share:5.15.3] /Users/mac/.gradle/caches/transforms-3/eababf37ce94f8fbbc355d146fade261/transformed/jetified-facebook-share-5.15.3/AndroidManifest.xml:28:18-44
+33        <activity
+34            android:name="com.example.intelligent_reader_app.MainActivity"
+35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+36            android:exported="true"
+37            android:hardwareAccelerated="true"
+38            android:launchMode="singleTop"
+39            android:theme="@style/LaunchTheme"
+40            android:windowSoftInputMode="adjustResize" >
+41
+42            <!--
+43                 Specifies an Android theme to apply to this Activity as soon as
+44                 the Android process has started. This theme is visible to the user
+45                 while the Flutter UI initializes. After that, this theme continues
+46                 to determine the Window background behind the Flutter UI.
+47            -->
+48            <meta-data
+49                android:name="io.flutter.embedding.android.NormalTheme"
+50                android:resource="@style/NormalTheme" />
+51
+52            <intent-filter>
+53                <action android:name="android.intent.action.MAIN" />
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+56            </intent-filter>
+57        </activity>
+58
+59        <!--
+60             Don't delete the meta-data below.
+61             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+62        -->
+63        <meta-data
+64            android:name="flutterEmbedding"
+65            android:value="2" />
+66
+67        <!-- /////// social share me code start -->
+68        <meta-data
+69            android:name="com.facebook.sdk.ApplicationId"
+70            android:value="@string/facebook_app_id" />
+71
+72        <provider
+73            android:name="com.facebook.FacebookContentProvider"
+74            android:authorities="com.facebook.app.FacebookContentProvider[facebook_app_id]"
+75            android:exported="false" />
+76        <!-- ///////social share me code end -->
+77
+78        <provider
+78-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:17:9-25:20
+79            android:name="zhuoyuan.li.fluttershareme.util.ShareFileProvider"
+79-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-77
+80            android:authorities="com.example.intelligent_reader_app.provider"
+80-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-60
+81            android:exported="false"
+81-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-37
+82            android:grantUriPermissions="true" >
+82-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-47
+83            <meta-data
+83-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-24:54
+84                android:name="android.support.FILE_PROVIDER_PATHS"
+84-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:23:17-67
+85                android:resource="@xml/file_paths" />
+85-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-51
+86        </provider>
+87
+88        <uses-library
+88-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+89            android:name="androidx.window.extensions"
+89-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+90            android:required="false" />
+90-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+91        <uses-library
+91-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+92            android:name="androidx.window.sidecar"
+92-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+93            android:required="false" />
+93-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+94
+95        <activity
+95-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:30:9-33:66
+96            android:name="com.facebook.FacebookActivity"
+96-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:31:13-57
+97            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+97-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:32:13-96
+98            android:theme="@style/com_facebook_activity_theme" />
+98-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:33:13-63
+99        <activity android:name="com.facebook.CustomTabMainActivity" />
+99-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:34:9-71
+99-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:34:19-68
+100        <activity
+100-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:35:9-49:20
+101            android:name="com.facebook.CustomTabActivity"
+101-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:36:13-58
+102            android:exported="true" >
+102-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:37:13-36
+103            <intent-filter>
+103-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:39:13-48:29
+104                <action android:name="android.intent.action.VIEW" />
+104-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:40:17-69
+104-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:40:25-66
+105
+106                <category android:name="android.intent.category.DEFAULT" />
+106-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:42:17-76
+106-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:42:27-73
+107                <category android:name="android.intent.category.BROWSABLE" />
+107-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:43:17-78
+107-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:43:27-75
+108
+109                <data
+109-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:45:17-47:50
+110                    android:host="cct.com.example.intelligent_reader_app"
+110-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:46:21-56
+111                    android:scheme="fbconnect" />
+111-->[com.facebook.android:facebook-common:5.15.3] /Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/AndroidManifest.xml:47:21-47
+112            </intent-filter>
+113        </activity>
+114        <activity
+114-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/mac/.gradle/caches/transforms-3/f0229f3555a11baa9166b03c251f0d5e/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:28:9-31:49
+115            android:name="com.twitter.sdk.android.tweetui.PlayerActivity"
+115-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/mac/.gradle/caches/transforms-3/f0229f3555a11baa9166b03c251f0d5e/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:29:13-74
+116            android:configChanges="keyboardHidden|orientation|screenSize"
+116-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/mac/.gradle/caches/transforms-3/f0229f3555a11baa9166b03c251f0d5e/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:30:13-74
+117            android:theme="@style/MediaTheme" />
+117-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/mac/.gradle/caches/transforms-3/f0229f3555a11baa9166b03c251f0d5e/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:31:13-46
+118        <activity
+118-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/mac/.gradle/caches/transforms-3/f0229f3555a11baa9166b03c251f0d5e/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:32:9-34:49
+119            android:name="com.twitter.sdk.android.tweetui.GalleryActivity"
+119-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/mac/.gradle/caches/transforms-3/f0229f3555a11baa9166b03c251f0d5e/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:33:13-75
+120            android:theme="@style/MediaTheme" />
+120-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/mac/.gradle/caches/transforms-3/f0229f3555a11baa9166b03c251f0d5e/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:34:13-46
+121        <!--
+122         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+123         with the application context. This config is merged in with the host app's manifest,
+124         but there can only be one provider with the same authority activated at any given
+125         point; so if the end user has two or more different apps that use Facebook SDK, only the
+126         first one will be able to use the provider. To work around this problem, we use the
+127         following placeholder in the authority to identify each host application as if it was
+128         a completely different provider.
+129        -->
+130        <provider
+130-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:39:9-42:40
+131            android:name="com.facebook.internal.FacebookInitProvider"
+131-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:40:13-70
+132            android:authorities="com.example.intelligent_reader_app.FacebookInitProvider"
+132-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:41:13-72
+133            android:exported="false" />
+133-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:42:13-37
+134
+135        <receiver
+135-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:44:9-50:20
+136            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+136-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:45:13-86
+137            android:exported="false" >
+137-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:46:13-37
+138            <intent-filter>
+138-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:47:13-49:29
+139                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+139-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:48:17-95
+139-->[com.facebook.android:facebook-core:5.15.3] /Users/mac/.gradle/caches/transforms-3/7939920ec1328c6ee7f20f6dab01e2b0/transformed/jetified-facebook-core-5.15.3/AndroidManifest.xml:48:25-92
+140            </intent-filter>
+141        </receiver>
+142
+143        <activity
+143-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/mac/.gradle/caches/transforms-3/e8c34ca77821555804e43a10b52264a1/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:28:9-31:71
+144            android:name="com.twitter.sdk.android.tweetcomposer.ComposerActivity"
+144-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/mac/.gradle/caches/transforms-3/e8c34ca77821555804e43a10b52264a1/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:29:13-82
+145            android:exported="false"
+145-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/mac/.gradle/caches/transforms-3/e8c34ca77821555804e43a10b52264a1/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:30:13-37
+146            android:windowSoftInputMode="adjustResize|stateVisible" />
+146-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/mac/.gradle/caches/transforms-3/e8c34ca77821555804e43a10b52264a1/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:31:13-68
+147
+148        <service
+148-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/mac/.gradle/caches/transforms-3/e8c34ca77821555804e43a10b52264a1/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:33:9-36:40
+149            android:name="com.twitter.sdk.android.tweetcomposer.TweetUploadService"
+149-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/mac/.gradle/caches/transforms-3/e8c34ca77821555804e43a10b52264a1/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:34:13-84
+150            android:enabled="true"
+150-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/mac/.gradle/caches/transforms-3/e8c34ca77821555804e43a10b52264a1/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:35:13-35
+151            android:exported="false" />
+151-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/mac/.gradle/caches/transforms-3/e8c34ca77821555804e43a10b52264a1/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:36:13-37
+152
+153        <activity
+153-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/mac/.gradle/caches/transforms-3/0090a7e560d1bb966d67181cd4b0ebca/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:28:9-32:40
+154            android:name="com.twitter.sdk.android.core.identity.OAuthActivity"
+154-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/mac/.gradle/caches/transforms-3/0090a7e560d1bb966d67181cd4b0ebca/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:29:13-79
+155            android:configChanges="orientation|screenSize"
+155-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/mac/.gradle/caches/transforms-3/0090a7e560d1bb966d67181cd4b0ebca/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:30:13-59
+156            android:excludeFromRecents="true"
+156-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/mac/.gradle/caches/transforms-3/0090a7e560d1bb966d67181cd4b0ebca/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:31:13-46
+157            android:exported="false" />
+157-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/mac/.gradle/caches/transforms-3/0090a7e560d1bb966d67181cd4b0ebca/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:32:13-37
+158    </application>
+159
+160</manifest>

@@ -122,7 +122,7 @@ class _thirdPageState extends State<ThirdPage> {
                         onTap: (){
 
                         },
-                        child: Text("• Terms and conditions",style: TextStyle ( fontFamily: AppFontFamily.UBUNTU_MEDIUM,
+                        child: Text("• Terms and conditions",style: TextStyle ( fontFamily: AppFontFamily.RobotoMedium,
                             color: AppColor.linkedInButtonColor,
                             fontSize: MediaQuery.of(context).size.height *
                                 AppWidgetSize.appContentFontSize),),
@@ -131,7 +131,7 @@ class _thirdPageState extends State<ThirdPage> {
                       InkWell(
                         onTap: (){
 
-                        },          child: Text("• FAQs",style: TextStyle ( fontFamily: AppFontFamily.UBUNTU_MEDIUM,
+                        },          child: Text("• FAQs",style: TextStyle ( fontFamily: AppFontFamily.RobotoMedium,
                           color: AppColor.linkedInButtonColor,
                           fontSize: MediaQuery.of(context).size.height *
                               AppWidgetSize.appContentFontSize),),
@@ -142,11 +142,11 @@ class _thirdPageState extends State<ThirdPage> {
 
 
                   ListTile(
-                    title:    Text("You are yet to earn any scratch cards",style: TextStyle ( fontFamily: AppFontFamily.UBUNTU_MEDIUM,
+                    title:    Text("You are yet to earn any scratch cards",style: TextStyle ( fontFamily: AppFontFamily.RobotoMedium,
                         color: AppColor.appBlackColor,
                         fontSize: MediaQuery.of(context).size.height *
                             AppWidgetSize.appLargeTitleFontSize),),
-                    subtitle:    Text("Start referring to get surprises",style: TextStyle (fontFamily: AppFontFamily.UBUNTU_MEDIUM,
+                    subtitle:    Text("Start referring to get surprises",style: TextStyle (fontFamily: AppFontFamily.RobotoMedium,
                         color: AppColor.appBlackColor,
                         fontSize: MediaQuery.of(context).size.height *
                             AppWidgetSize.appSubtitleSize),),
@@ -165,7 +165,7 @@ class _thirdPageState extends State<ThirdPage> {
                     ),
                     child: SvgPicture.asset(ImagesString.reward2),
                   ),
-                    title: Text("Earn ₹100 on every scratch acrd",style: TextStyle (fontFamily: AppFontFamily.UBUNTU_MEDIUM,
+                    title: Text("Earn ₹100 on every scratch acrd",style: TextStyle (fontFamily: AppFontFamily.RobotoMedium,
                         color: AppColor.appBlackColor,
                         fontSize: MediaQuery.of(context).size.height *
                             AppWidgetSize.appContentFontSize),),
