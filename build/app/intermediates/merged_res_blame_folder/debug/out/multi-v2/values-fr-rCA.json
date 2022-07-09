@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
                     "source": "/Users/mac/.gradle/caches/transforms-3/ae33288d861e0a2f4ab592210683f823/transformed/jetified-facebook-common-5.15.3/res/values-fr-rCA/values-fr-rCA.xml",

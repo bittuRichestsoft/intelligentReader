@@ -23,5 +23,5 @@ class AppFontFamily
 
   static final String RobotoThin = "RobotoThin";
 
-  static final String RobotoThinkItalic = "RobotoThinkItalic";
+  static final String RobotoThinItalic = "RobotoThinItalic";
 }

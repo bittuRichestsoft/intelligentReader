@@ -165,7 +165,7 @@ class _thirdPageState extends State<ThirdPage> {
                     ),
                     child: SvgPicture.asset(ImagesString.reward2),
                   ),
-                    title: Text("Earn ₹100 on every scratch acrd",style: TextStyle (fontFamily: AppFontFamily.RobotoMedium,
+                    title: Text("Earn ₹100 on every scratch card",style: TextStyle (fontFamily: AppFontFamily.RobotoMedium,
                         color: AppColor.appBlackColor,
                         fontSize: MediaQuery.of(context).size.height *
                             AppWidgetSize.appContentFontSize),),

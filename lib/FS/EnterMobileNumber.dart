@@ -309,8 +309,7 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
         }
       });
     } else {
-      GlobalUtility()
-          .showSnackBar(AppStrings.PleaseCheckInternetConnection, context);
+      GlobalUtility() .showSnackBar(AppStrings.PleaseCheckInternetConnection, context);
     }
   }
 }

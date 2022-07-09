@@ -13,23 +13,23 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/android/app/src/main/AndroidManifest.xml:3:5-66
-15-->/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/android/app/src/main/AndroidManifest.xml:3:22-64
+15-->/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/android/app/src/main/AndroidManifest.xml:3:5-66
+15-->/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/android/app/src/main/AndroidManifest.xml:3:22-64
 16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-16-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-81
-16-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-78
+16-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-81
+16-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-78
 17
 18    <queries>
-18-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-14:15
+18-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-14:15
 19        <package android:name="com.instagram.android" />
-19-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-57
-19-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:13:18-54
+19-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-57
+19-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:13:18-54
 20    </queries>
 21
 22    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-23-->[:connectivity] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/connectivity/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
-23-->[:connectivity] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/connectivity/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
+23-->[:connectivity] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/connectivity/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
+23-->[:connectivity] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/connectivity/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
 24    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 24-->[com.android.installreferrer:installreferrer:1.0] /Users/mac/.gradle/caches/transforms-3/36ca33fc38238ef17c66f5c3a867f791/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:9:5-110
 24-->[com.android.installreferrer:installreferrer:1.0] /Users/mac/.gradle/caches/transforms-3/36ca33fc38238ef17c66f5c3a867f791/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:9:22-107
@@ -89,21 +89,21 @@
 76        <!-- ///////social share me code end -->
 77
 78        <provider
-78-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:17:9-25:20
+78-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:17:9-25:20
 79            android:name="zhuoyuan.li.fluttershareme.util.ShareFileProvider"
-79-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-77
+79-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-77
 80            android:authorities="com.example.intelligent_reader_app.provider"
-80-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-60
+80-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-60
 81            android:exported="false"
-81-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-37
+81-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-37
 82            android:grantUriPermissions="true" >
-82-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-47
+82-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-47
 83            <meta-data
-83-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-24:54
+83-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-24:54
 84                android:name="android.support.FILE_PROVIDER_PATHS"
-84-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:23:17-67
+84-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:23:17-67
 85                android:resource="@xml/file_paths" />
-85-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-51
+85-->[:flutter_share_me] /Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-51
 86        </provider>
 87
 88        <uses-library

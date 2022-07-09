@@ -28,4 +28,7 @@ static String intro = "intro";
   static String loginLinked = "Login with Linkedin";
   static   String PleaseCheckInternetConnection ="Please check your internet connection";
 
+
+  static String SESSION_ID= "session_id";
+
 }

@@ -1,5 +1,7 @@
 
 
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,8 +11,10 @@ import 'package:intelligent_reader_app/Constants/app_strings.dart';
 import 'package:intelligent_reader_app/Constants/app_widgetsize.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../Constants/ApiUrl.dart';
 import '../Constants/AppFontFamily.dart';
 import '../Utilities/GlobalUtility.dart';
+import '../webApi/WebApi.dart';
 
 class UpdateProfile extends StatefulWidget  {
 
@@ -21,15 +25,14 @@ class UpdateProfile extends StatefulWidget  {
 
 class _updateProfileState extends State<UpdateProfile>{
 
-  TextEditingController subjectController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
 
 List<String> lstGender = ['Mrs.', 'Mr.'];
   var countryCodeValue;
   TextEditingController name_controller = TextEditingController();
-
-
-  var selectedComplaintType;
+  TextEditingController phone_controller = TextEditingController();
+    var selectedComplaintType;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,10 +74,11 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
           ),
           child: ListView(
             children: [
-          nameGender(),
-            subject(),
-                complaintType(),
-              description(),
+              nameAndGenderStaticText(),
+              nameAndGender(),
+              mobileNumber(),
+              emailField(),
+              address(),
               submitButton(),
              ],
           ),
@@ -95,14 +99,20 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
     );
   }
 
-  Widget subject() {
+  Widget mobileNumber() {
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
       child: TextField(
-        controller: name_controller,
+        controller: phone_controller,
         // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         keyboardType: TextInputType.number,
         textInputAction: TextInputAction.done,
+        onChanged: (text) {
+         if(text.length>10){
+            phone_controller.text = text.substring(0,10);
+           phone_controller.selection = TextSelection.fromPosition(TextPosition(offset: phone_controller.text.length));
+         }
+        },
         style: TextStyle(
           color: Colors
               .black, /*fontSize: MediaQuery.of(context).size.height * 0.02*/
@@ -139,68 +149,12 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
     );
   }
 
-  Widget complaintType() {
-    return Container (
-      margin: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.02),
-      child: DropdownButtonFormField(
-          isDense: true,
-          isExpanded: true,
-          decoration: InputDecoration(
-            labelStyle: TextStyle(
-                color: Colors.black,
-                fontFamily: AppFontFamily.RobotoMedium,
-                fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentSmallFontSize),
-            enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)
-            ),
-            focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)),
-          ),
-          hint: Text(
-            "Choose Type",
-            style: TextStyle(
-              color: AppColor.appHintColor,
-              fontSize: MediaQuery.of(context).size.height *   AppWidgetSize.appContentSmallFontSize,
-              fontFamily: AppFontFamily.RobotoMedium,
-            ),
-          ),
 
-          icon:SvgPicture.asset(ImagesString.SvgGroupLogin),
-          items: lstGender.map((String genderType) {
-            return DropdownMenuItem<String>(
-                value: genderType.toString(),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      genderType,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: AppFontFamily.RobotoMedium,
-                      ),
-                    ),
-                    //type.icon
-
-                  ],
-                )
-            );
-          }).toList(),
-          value: selectedComplaintType,
-          onChanged: (valueSelectedByUser) {
-            setState(() {
-              selectedComplaintType = valueSelectedByUser.toString();
-
-              print("selectedComplaintTypeid $selectedComplaintType");
-            });
-          }),
-    );
-  }
-
-  Widget description() {
+  Widget address() {
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
       child:  TextFormField(
-        controller: descriptionController,
+        controller: addressController,
         style: TextStyle(color: Colors.black,fontFamily: AppFontFamily.RobotoMedium),
         maxLines: null,
         decoration:  InputDecoration(
@@ -208,7 +162,29 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
           focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)),
           border: UnderlineInputBorder(),
           fillColor: AppColor.appHintColor,
-          labelText: 'Description',
+          labelText: 'Address',
+          hintText: 'Enter Your Address',
+          labelStyle: TextStyle(
+              fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentSmallFontSize,
+              color: AppColor.appHintColor,
+              fontFamily: AppFontFamily.RobotoMedium),
+        ),
+      ),
+    );
+  }
+  Widget emailField() {
+    return Container(
+      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
+      child:  TextFormField(
+        controller: emailController,
+        style: TextStyle(color: Colors.black,fontFamily: AppFontFamily.RobotoMedium),
+        maxLines: 1,
+        decoration:  InputDecoration(
+          enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)),
+          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)),
+          border: UnderlineInputBorder(),
+          fillColor: AppColor.appHintColor,
+          labelText: 'Email Address',
           labelStyle: TextStyle(
               fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentSmallFontSize,
               color: AppColor.appHintColor,
@@ -223,7 +199,7 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
       onTap: ()
       {
 
-     //   complaintApi();
+       updateProfileApi();
         // showUpdatedInfoBottomSheet();
 
       },
@@ -331,17 +307,19 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
     );
   }
 
-/*  complaintApi() async {
+  updateProfileApi() async {
     var check_internet = await GlobalUtility().isConnected();
-    var token = await GlobalUtility().getPrefValue(AppString.SESSION_ID);
+    var token = await GlobalUtility().getPrefValue(AppStrings.SESSION_ID);
     FocusScopeNode currentFocus = FocusScope.of(context);
     if (check_internet) {
       if(validate())
       {
         Map map = {
-          "subject": subjectController.text,
-          "description": descriptionController.text,
-          "type": selectedComplaintType,
+          "name":name_controller.text,
+          "email":emailController.text,
+          "number":phone_controller.text,
+          "address":addressController.text,
+          "genderType":lstGender[0],
         };
 
         GlobalUtility().showLoaderDialog(context);
@@ -350,7 +328,7 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
           currentFocus.unfocus();
         }
 
-        String apiResponse = await WebApi().post_with_header_with_map(map, ApiUrl.RAISE_COMPLAINT, token);
+        String apiResponse = await WebApi().post_with_header_with_map(map, ApiUrl.updateProfile, token);
 
         setState(() {
           Navigator.of(context).pop();
@@ -377,10 +355,10 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
     } else {
       GlobalUtility().showSnackBar(AppStrings.PleaseCheckInternetConnection, context);
     }
-  }*/
+  }
 
   bool validate() {
-    if (subjectController.text.replaceAll(" ", "") == "") {
+    if (addressController.text.replaceAll(" ", "") == "") {
       GlobalUtility().showSnackBar("Enter subject", context);
       return false;
     }
@@ -390,20 +368,34 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
       return false;
     }
 
-    if (descriptionController.text.replaceAll(" ", "") == "") {
-      GlobalUtility().showSnackBar("Enter description", context);
+    if (emailController.text.replaceAll(" ", "") == "") {
+      GlobalUtility().showSnackBar("Enter emailController", context);
       return false;
     }
 
     return true;
   }
 
+  Widget nameAndGenderStaticText() {
+    return Container(
+       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text("Gender"),
 
-  Widget nameGender() {
+          Text("Name"),
+          SizedBox()
+
+        ],
+      ),
+    );
+  }
+  Widget nameAndGender() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.07,
-      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
-      child: Row(
+       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -475,21 +467,21 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
                   child: TextField(
                     controller: name_controller,
                     // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    keyboardType: TextInputType.number,
+              maxLines: 1,
                     textInputAction: TextInputAction.done,
                     style: TextStyle(
                       color: Colors
                           .black, /*fontSize: MediaQuery.of(context).size.height * 0.02*/
                     ),
-
+/*
                     decoration: InputDecoration(
                       //  border: InputBorder.none,
                       hintText: 'Phone Number',
                       fillColor: Colors.black,
                       hintStyle: TextStyle(
                         color: Colors.grey.withOpacity(0.5),
-                        /*  fontSize: MediaQuery.of(context).size.height * 0.02,*/
-                        /* fontFamily: AppFontFamily.UBUNTU_MEDIUM*/
+                        *//*  fontSize: MediaQuery.of(context).size.height * 0.02,*//*
+                        *//* fontFamily: AppFontFamily.UBUNTU_MEDIUM*//*
                       ),
                       disabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: AppColor.appBlackColor),
@@ -500,7 +492,7 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: AppColor.appBlackColor),
                       ),
-                      /*  suffixIcon: Visibility(
+                      *//*  suffixIcon: Visibility(
                       visible: isSendOtpVisible,
                       child: IconButton(
                         padding: EdgeInsets.only(
@@ -508,7 +500,19 @@ List<String> lstGender = ['Mrs.', 'Mr.'];
                         onPressed: () {},
                         icon: SvgPicture.asset(AppImages.editPencilIcon),
                       ),
+                    ),*//*
                     ),*/
+                    decoration:  InputDecoration(
+                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)),
+                      focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appTextFieldBorderColor)),
+                      border: UnderlineInputBorder(),
+                      fillColor: AppColor.appHintColor,
+                      labelText: 'Address',
+                      hintText: 'Enter Your Address',
+                      labelStyle: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentSmallFontSize,
+                          color: AppColor.appHintColor,
+                          fontFamily: AppFontFamily.RobotoMedium),
                     ),
                   ),
                 ),

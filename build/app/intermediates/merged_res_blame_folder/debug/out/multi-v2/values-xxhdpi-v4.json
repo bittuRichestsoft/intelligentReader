@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/intelligent/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-xxhdpi-v4/values-xxhdpi-v4.xml",
+            "outputFile": "/Users/mac/Desktop/Bittu/Android Projects/new Project/Flutter/IntelligentReader All Things/R&D_intelligent/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-xxhdpi-v4/values-xxhdpi-v4.xml",
             "map": [
                 {
                     "source": "/Users/mac/.gradle/caches/transforms-3/0090a7e560d1bb966d67181cd4b0ebca/transformed/jetified-twitter-core-3.1.1/res/values-xxhdpi-v4/values-xxhdpi-v4.xml",
