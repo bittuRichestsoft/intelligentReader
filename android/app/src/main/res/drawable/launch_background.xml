@@ -9,9 +9,9 @@
             android:src="@drawable/fs_bg"/>
     </item>
 
-    <item>
+   <!-- <item>
         <bitmap
             android:gravity="center"
             android:src="@drawable/splash_logo"/>
-    </item>
+    </item>-->
 </layer-list>
