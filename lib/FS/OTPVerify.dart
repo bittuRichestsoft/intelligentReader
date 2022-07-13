@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/services.dart';
 import 'package:intelligent_reader_app/FS/ChooseLocation.dart';
+import 'package:intelligent_reader_app/FS/EnterMobileNumber.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 
+import '../Constants/AppFontFamily.dart';
+import '../Constants/ImagesString.dart';
 import '../Constants/app_color.dart';
 import '../Constants/app_widgetsize.dart';
 
@@ -42,37 +45,45 @@ class _oTPVerifyState extends State<OTPVerify> {
     return Scaffold(
         body: Stack(
           children: [
-            SvgPicture.asset(
-              'assets/images/svg/login_bg.svg',
-              fit: BoxFit.fill,
-              //  height: MediaQuery.of(context).size.height,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-            ),
+
+            Image(image: AssetImage(          ImagesString.cheerful_plumber_plumber_png,),fit:BoxFit.fitWidth,
+              height: sizeVal.height,
+              width: sizeVal.width,),
+            Container(
+              height: sizeVal.height,
+              width: sizeVal.width,
+              color: Colors.grey.withOpacity(0.8),),
             Container(
               height: sizeVal.height,
               width: sizeVal.width,
               child: Column(
                 children: [
                   SizedBox(
-                    height: sizeVal.height * 0.05,
+                    height: sizeVal.height * 0.07,
                   ),
-                  Text(
-                    "data data",
-                    style: TextStyle(fontSize: sizeVal.width * 0.1),
+                  Container(
+                    height: MediaQuery.of(context).size.height*0.09,
+                    width: MediaQuery.of(context).size.width*0.6,
+
+                    child: SvgPicture.asset(
+                      ImagesString.flash_services_text,
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                  SizedBox(
+                    height: sizeVal.height * 0.02,
                   ),
                   Center(
                     child: Container(
-                      width: sizeVal.width * 0.2,
-                      height: 2,
+                      width: sizeVal.width * 0.1,
+                      height: sizeVal.height*0.005,
                       color: Colors.deepPurpleAccent,
                     ),
                   )
                 ],
               ),
             ),
+
             Center(
               child: Container(
                 height: sizeVal.height * 0.4,
@@ -83,6 +94,10 @@ class _oTPVerifyState extends State<OTPVerify> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
+                    border: Border.all(
+                      color: AppColor.appOrangeColor,
+                      width: 1,
+                    )
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20),
@@ -93,7 +108,7 @@ class _oTPVerifyState extends State<OTPVerify> {
                       children: [
                         Container(
                           alignment: Alignment.centerLeft,
-                          child: Text("Phone Number",
+                          child: Text("OTP Verification",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: sizeVal.width * 0.05,
@@ -102,20 +117,24 @@ class _oTPVerifyState extends State<OTPVerify> {
                         Container(
                             height: sizeVal.height * 0.05,
                             alignment: Alignment.centerLeft,
-                            child: Text("Enter Phone Number",
+                            child: Text("Enter the OTP you received to",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   fontSize: sizeVal.width * 0.02,
                                 ))),
+                    numberAndEdit(),
+
                         OtpFields(),
                         Container(
                           alignment: Alignment.centerLeft,
-                          height: sizeVal.height * 0.1,
+                          height: sizeVal.height * 0.08,
                           child:
-                          Text("You will got an OTP on entered mobile number",
+                          Text("Resend OTP",
                               textAlign: TextAlign.left,
+
                               style: TextStyle(
-                                fontSize: sizeVal.width * 0.03,
+                                fontSize: sizeVal.width * 0.035,
+                              color: AppColor.linkedInButtonColor
                               )),
                         ),
                         sendOtpButton()
@@ -146,10 +165,6 @@ class _oTPVerifyState extends State<OTPVerify> {
         child: Container(
           alignment: Alignment.center,
 
-          width: MediaQuery
-              .of(context)
-              .size
-              .width * AppWidgetSize.appButtonWidth,
           height:
           MediaQuery
               .of(context)
@@ -164,7 +179,7 @@ class _oTPVerifyState extends State<OTPVerify> {
                     .width *
                     AppWidgetSize.appButtonBorderRadius)),
           ),
-          child: Text("Send OTP",
+          child: Text("Login",
               style: TextStyle(
                 color: AppColor.appWhiteColor,
                 fontSize: MediaQuery
@@ -197,6 +212,41 @@ class _oTPVerifyState extends State<OTPVerify> {
  completeOtp = pin;
  },
   );
+  }
+
+  numberAndEdit() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+      Text("+91$phnNmbr",
+      style: TextStyle(
+        color: AppColor.appBlackColor,
+        fontSize: MediaQuery
+            .of(context)
+            .size
+            .height *
+            AppWidgetSize.appContentFontSize,
+          fontWeight: FontWeight.bold,
+        fontFamily: AppFontFamily.RobotoMedium)),
+
+    InkWell(
+      onTap: (){
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) =>   EnterMobileNumber()),
+        );
+      },
+      child: Text("Edit Number",
+        style: TextStyle(
+          color: AppColor.linkedInButtonColor,
+          fontSize: MediaQuery
+              .of(context)
+              .size
+              .height *
+              AppWidgetSize.appContentFontSize,
+          /*fontFamily: AppFontFamily.UBUNTU_MEDIUM*/)),
+    )
+    ],);
   }
 
 }

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:intelligent_reader_app/ApiResponse/LoginResp.dart';
+import 'package:intelligent_reader_app/ApiResponse/SendOtpRes.dart';
 import 'package:intelligent_reader_app/Constants/ImagesString.dart';
 import 'package:intelligent_reader_app/Constants/app_strings.dart';
 import 'package:intelligent_reader_app/Constants/app_widgetsize.dart';
@@ -14,7 +14,6 @@ import 'package:intelligent_reader_app/View/HomeScreen.dart';
 import 'package:linkedin_login/linkedin_login.dart';
 import 'package:sized_context/sized_context.dart';
 
-import '../ApiResponse/UserDataFromLinked.dart';
 import '../Constants/ApiUrl.dart';
 import '../Constants/app_color.dart';
 import '../Utilities/GlobalUtility.dart';

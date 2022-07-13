@@ -27,16 +27,7 @@ class _homeFlashState extends State<HomeFlash> {
   var sizeVal;
   TextEditingController searchLocController = TextEditingController();
 
-    List<Choice> choices = <Choice>[
-    Choice(title: 'Home', icon: Icons.home),
-    Choice(title: 'Contact', icon: Icons.contacts),
-    Choice(title: 'Map', icon: Icons.map),
-    Choice(title: 'Phone', icon: Icons.phone),
-    Choice(title: 'Camera', icon: Icons.camera_alt),
-    Choice(title: 'Setting', icon: Icons.settings),
-    Choice(title: 'Album', icon: Icons.photo_album),
-    Choice(title: 'WiFi', icon: Icons.wifi),
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,24 +54,25 @@ class _homeFlashState extends State<HomeFlash> {
         items:  <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: (_selectedIndex == 0) ? tabItem(ImagesString.bottom_home_selected):
-      tabItem(ImagesString.SvgGroupLogin) ,
-        label: '',
+      tabItem(ImagesString.bottom_home_disabled) ,
+        label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: (_selectedIndex == 1)? tabItem(ImagesString.bottom_cal_unselect) :
-    tabItem(ImagesString.bottom_cal_unselect),
-          label: '',
+            icon: (_selectedIndex == 1)? SvgPicture.asset(ImagesString.bottom_cal_unselect,height: 20,width: 40,color: AppColor.appOrangeColor,):
+            tabItem(ImagesString.bottom_cal_unselect)
+            ,
+          label: 'Booking',
           ),
           BottomNavigationBarItem(
-            icon: (_selectedIndex == 2) ?  tabItem(ImagesString.bottom_reward_selected)  :
+            icon: (_selectedIndex == 2) ?  tabItem(ImagesString.bottom_reward_enabled)  :
     tabItem(ImagesString.bottom_reward_unslelect)     ,
-            label: '',
+            label: 'Rewards',
           ),
 
           BottomNavigationBarItem(
             icon: (_selectedIndex == 3) ?  tabItem(ImagesString.bottom_profile_selected) :
     tabItem(ImagesString.bottom_profile_unselect) ,
-             label: '',
+             label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -108,11 +100,6 @@ Widget  tabItem(String strImg) {
 return  SvgPicture.asset(strImg,height: 20,width: 40,);
 }
 
-}
-class Choice {
- Choice({this.title, this.icon});
- final String? title;
- final  IconData? icon;
 }
 
 

@@ -1,4 +1,3 @@
-
 class AppFontFamily
 {
   static final String RobotoBlack = "RobotoBlack";

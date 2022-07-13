@@ -1,5 +1,6 @@
 class AppStrings{
   // all app images
+  static String SESSION_ID= 'session_id';
 
 
   // all font familes
@@ -27,8 +28,5 @@ static String intro = "intro";
   static String errorString= "Try again";
   static String loginLinked = "Login with Linkedin";
   static   String PleaseCheckInternetConnection ="Please check your internet connection";
-
-
-  static String SESSION_ID= "session_id";
 
 }

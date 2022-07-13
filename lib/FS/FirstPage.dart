@@ -85,8 +85,8 @@ class _firstPageState extends State<FirstPage> {
                 onPressed: () {
                   //    _scaffoldKey.currentState!.openDrawer();
                 },
-                icon:/* SvgPicture.asset(ImagesString.location_icon)*/
-                Icon(Icons.location_on,color: AppColor.appWhiteColor),
+                icon: SvgPicture.asset(ImagesString.location_icon)
+/*                Icon(Icons.location_on,color: AppColor.appWhiteColor),*/
               ),
               actions: <Widget>[
                 IconButton(
@@ -110,6 +110,7 @@ class _firstPageState extends State<FirstPage> {
                    viewMoreBtn(),
                   guranteeText(),
                   bannerImages(),
+                  bestOfferTxt(),
                   bestOffers(),
                   /*adsVw(),*/ ],
               ),
@@ -160,7 +161,6 @@ class _firstPageState extends State<FirstPage> {
   categoriesGrid() {
     return  Expanded(
       child: Container(
-         //     height: sizeVal.height*0.3,
         child: GridView(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
@@ -172,7 +172,7 @@ class _firstPageState extends State<FirstPage> {
             5,
                 (index) => Container(
               decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: AppColor.appOrangeColor)
+                  border: Border.all(width: 0.5, color: AppColor.appHintColor)
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -193,6 +193,8 @@ class _firstPageState extends State<FirstPage> {
     return  Expanded(
       child: Container(
         //     height: sizeVal.height*0.3,
+        margin: EdgeInsets.all(sizeVal.width * 0.03),
+
         child: GridView.count(
           crossAxisCount: 2,
           physics: NeverScrollableScrollPhysics(),
@@ -200,7 +202,7 @@ class _firstPageState extends State<FirstPage> {
 
           children:   widgetList.map((String value) {
             return   Container(
-              height: 250.0,
+            //  height: 250.0,
               color: Colors.green,
               margin:  EdgeInsets.all(1.0),
               child:  Column(
@@ -210,8 +212,8 @@ class _firstPageState extends State<FirstPage> {
                     fit: BoxFit.fill,
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
-                height: 120,  ),
-              Text (
+                /*height: 120,  */),
+          /*    Text (
                 value,
                 style:  const TextStyle(fontSize: 5.0,color: Colors.white),
               ),
@@ -219,7 +221,7 @@ class _firstPageState extends State<FirstPage> {
                 value,
                 style:  const TextStyle(fontSize: 5.0,color: Colors.white),
               ),
-
+*/
                 ]
 
               ),
@@ -233,11 +235,11 @@ class _firstPageState extends State<FirstPage> {
   Widget guranteeText() {
     return Container(
       //  height: sizeVal.height*0.25,
-        margin: EdgeInsets.all( 10),
+        margin: EdgeInsets.only( top: 10,bottom: 10),
         color: Colors.grey,
         child: ListTile(
-          title:  Text("100% safe services"),
-          subtitle:    Text("✓ this is sample 1\n✓ this is sample 1\n✓ this is sample 1\n✓ this is sample 1\n")
+          title:  Text("100% safe services",style: TextStyle(color: AppColor.appBlackColor,fontWeight: FontWeight.bold)),
+          subtitle:    Text("✓ this is sample 1\n✓ this is sample 1\n✓ this is sample 1\n✓ this is sample 1\n",style: TextStyle(color: AppColor.appBlackColor))
         )
     );
 
@@ -245,71 +247,97 @@ class _firstPageState extends State<FirstPage> {
 
   Widget  bannerImages() {
 
-  return  Column(
-      children: [
-        Container(
-          height: sizeVal.width*0.2,
-          width: sizeVal.width,
-          child:PageView.builder(
-              itemCount: 4,
-              scrollDirection: Axis.horizontal,
-              controller: _pageController,
-              onPageChanged: (value) {
-                //When page change, start the controller
+  return  Container(
+    height: sizeVal.width*0.3,
+    child: Column(
+        children: [
+          Container(
+            height: sizeVal.width*0.2,
+            width: sizeVal.width,
+            child:PageView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                controller: _pageController,
+                onPageChanged: (value) {
+                  //When page change, start the controller
+setState(() {
+  pageIndex=value;
+});
+                },
+                itemBuilder: (BuildContext context, int index) {
 
-              },
-              itemBuilder: (BuildContext context, int index) {
-
-                return Card(
-                    child: Center(child: Container(
-                    width: sizeVal.width*0.18,
-                    child:CachedNetworkImage(
-                    imageUrl: "http://via.placeholder.com/200x150",
-                    imageBuilder: (context, imageProvider) => Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.cover,
-                        colorFilter:
-                        ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+                  return Card(
+                      child: Center(child: Container(
+                      width: sizeVal.width*0.18,
+                      child:CachedNetworkImage(
+                      imageUrl: "http://via.placeholder.com/200x150",
+                      imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                          colorFilter:
+                          ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+                    ),
                   ),
-                ),
-                placeholder: (context, url) => CircularProgressIndicator(),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-                ),
-                )));
-              })
-        ),
-        SizedBox(height: 4,),
-        CarouselIndicator(
-          count: _demo.length,
-          color: Colors.deepOrange,
-          index: pageIndex,
-        ),
-      ],
-    );
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  ),
+                  )));
+                })
+          ),
+//          SizedBox(height: 4,),
+          CarouselIndicator(
+            count: _demo.length,
+            color: AppColor.appHintColor,
+            index: pageIndex,
+activeColor: AppColor.appOrangeColor,
+  width: 10,        ),
+        ],
+      ),
+  );
   }
 
   viewMoreBtn() {
     return Container(
       width: sizeVal.width,
       height: sizeVal.height *0.08 ,
-      margin: EdgeInsets.only(left: sizeVal.width*0.1,right: sizeVal.width*0.1,top: sizeVal.height *0.03,bottom: sizeVal.height*0.03),
-      decoration: BoxDecoration(
-        color: AppColor.appOrangeColor,
+      margin: EdgeInsets.all(sizeVal.width * 0.03),
+
+       decoration: BoxDecoration(
+          color: AppColor.appWhiteColor,
         borderRadius: BorderRadius.all(Radius.circular(
             MediaQuery
                 .of(context)
                 .size
                 .width *
                 AppWidgetSize.appButtonBorderRadius)),
+          border: Border.all(
+            color: AppColor.linkedInButtonColor,
+            width: 1,
+          )
       ),
       padding: EdgeInsets.only(left: sizeVal.width * 0.03,right: sizeVal.width * 0.03),
       child: Center(
-        child: Text("Search More"),
+        child: Text("View All Services",
+        style: TextStyle(fontWeight: FontWeight.bold,color: AppColor.linkedInButtonColor),),
       ),
     );
 
   }
+
+Widget  bestOfferTxt() {
+    return ListTile(
+      dense:true,
+   //   contentPadding: EdgeInsets.only(top: 0.0, bottom: 0.0),
+      title: Text("Best offers",
+        style: TextStyle(color: AppColor.appBlackColor,fontSize:sizeVal.height*AppWidgetSize.appHeaderTitleFontSize),),
+
+  subtitle: Text("Hygeinic & single-use products | low contact services",
+    style: TextStyle(color: AppColor.appBlackColor,fontSize:sizeVal.height*AppWidgetSize.appContentXSmallFontSize),),
+
+    );
+
+}
 
 }

@@ -3,6 +3,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../Constants/ImagesString.dart';
 import '../Constants/app_color.dart';
@@ -35,14 +36,8 @@ child: Center(
         children: [
           Text("Hi, Nice to meet you", style:  TextStyle(fontSize: sizeVal.width * 0.03),  ),
           Text("See services around you", style:  TextStyle(fontSize: sizeVal.width * 0.04), ),
-         /* Image.asset(ImagesString.SvgGroupLogin,
-              width: 300,
-              height: 150,
-              fit:BoxFit.fill
-          ),*/
-          Icon(Icons.search,color: AppColor.appHintColor, size: 60,
+          SvgPicture.asset(ImagesString.search_another_loc),
 
-          ),
     continueButton(),
 //    SizedBox(height: sizeVal.height*0.02,),
     searchMoreServices(),
@@ -66,7 +61,7 @@ child: Center(
         },
       child: Container(
         alignment: Alignment.center,
-margin: EdgeInsets.all(sizeVal.height*0.02,),
+margin: EdgeInsets.only(left:sizeVal.height*0.02,right: sizeVal.height*0.02,),
 /*
         width: MediaQuery
             .of(context)
@@ -89,15 +84,15 @@ margin: EdgeInsets.all(sizeVal.height*0.02,),
         ),
         child: Row
           (
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Image.asset(
-              'assets/images/png/home.png',
-              width: 30,
-              color: Colors.white,
-              height: 15,
-              fit:BoxFit.fill
-          ),
+          children: [
+
+            SvgPicture.asset(ImagesString.location_icon,              width: 30,
+                color: Colors.white,
+                height: 15,
+                fit:BoxFit.fill
+            ),
           Text("Your Current Location",
 
             style: TextStyle(
@@ -120,10 +115,7 @@ margin: EdgeInsets.all(sizeVal.height*0.02,),
     return  Container(
       alignment: Alignment.center,
         margin: EdgeInsets.all(sizeVal.height*0.02,),
-     /* width: MediaQuery
-          .of(context)
-          .size
-          .width * AppWidgetSize.appButtonWidth,*/
+
       height:
       MediaQuery
           .of(context)
@@ -143,16 +135,16 @@ margin: EdgeInsets.all(sizeVal.height*0.02,),
       (
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [Image.asset(
-          'assets/images/png/home.png',
-          width: 30,
+      children: [SvgPicture.asset(ImagesString.search_icon,              width: 30,
+          color: AppColor.linkedInButtonColor,
+
           height: 15,
           fit:BoxFit.fill
       ),
-        Text("Something Other Location",
+        Text("Some other location",
 
           style: TextStyle(
-            color: AppColor.appOrangeColor,
+            color: AppColor.linkedInButtonColor,
             fontSize: MediaQuery
                 .of(context)
                 .size

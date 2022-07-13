@@ -1,5 +1,3 @@
-import 'package:intelligent_reader_app/FS/UpdateProfile.dart';
-
 class ApiUrl
 {
 
@@ -7,9 +5,7 @@ class ApiUrl
 
   static final LoginWithLinkedIn = "loginWithLinkedIn";
   static final SEND_OTP = "SEND_OTP";
-
-
-  static final updateProfile = "SEND_OTP";
+  static final updateProfile = "updateProfile";
 
 
 

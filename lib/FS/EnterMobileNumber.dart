@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intelligent_reader_app/Constants/ImagesString.dart';
 import 'package:intelligent_reader_app/Constants/app_strings.dart';
 
 import '../Constants/ApiUrl.dart';
@@ -30,28 +31,38 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
     return Scaffold(
         body: Stack(
       children: [
-        SvgPicture.asset(
-          'assets/images/svg/login_bg.svg',
-          fit: BoxFit.fill,
-          //  height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-        ),
+
+        Image(image: AssetImage(          ImagesString.cheerful_plumber_plumber_png,),fit:BoxFit.fitWidth,
+          height: sizeVal.height,
+          width: sizeVal.width,),
+         Container(
+          height: sizeVal.height,
+          width: sizeVal.width,
+           color: Colors.grey.withOpacity(0.8),),
         Container(
           height: sizeVal.height,
           width: sizeVal.width,
           child: Column(
             children: [
               SizedBox(
-                height: sizeVal.height * 0.05,
+                height: sizeVal.height * 0.07,
               ),
-              Text(
-                "data data",
-                style: TextStyle(fontSize: sizeVal.width * 0.1),
+          Container(
+            height: MediaQuery.of(context).size.height*0.09,
+            width: MediaQuery.of(context).size.width*0.6,
+
+            child: SvgPicture.asset(
+              ImagesString.flash_services_text,
+   fit: BoxFit.fitWidth,
+               ),
+          ),
+              SizedBox(
+                height: sizeVal.height * 0.02,
               ),
               Center(
                 child: Container(
-                  width: sizeVal.width * 0.2,
-                  height: 2,
+                  width: sizeVal.width * 0.1,
+                  height: sizeVal.height*0.005,
                   color: Colors.deepPurpleAccent,
                 ),
               )
@@ -68,7 +79,10 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
-            ),
+                border: Border.all(
+                  color: AppColor.appOrangeColor,
+                  width: 1,
+                ) ),
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Align(
@@ -78,16 +92,16 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                      child: Text("Phone Number",
+                      child: Text("Your Phone!",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: sizeVal.width * 0.05,
                           )),
                     ),
                 Container(
-               height:sizeVal.height*0.05 ,
+               height:sizeVal.height*0.04 ,
                   alignment: Alignment.centerLeft,
-                  child: Text("Enter Phone Number",
+                  child: Text("Phone Number",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: sizeVal.width * 0.02,
@@ -97,7 +111,7 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
                       alignment: Alignment.centerLeft,
                       height: sizeVal.height * 0.1,
                       child:
-                          Text("You will got an OTP on entered mobile number",
+                          Text("A 4 digit OTP will be sent via SMS to verify your mobile number!",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: sizeVal.width * 0.03,
@@ -118,8 +132,8 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
 
   Widget phoneField() {
     return Container(
-          height: MediaQuery.of(context).size.height * 0.07,
-      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
+         height: MediaQuery.of(context).size.height * 0.07,
+   //   margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -202,7 +216,7 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
 
                     decoration: InputDecoration(
                       //  border: InputBorder.none,
-                      hintText: 'Phone Number',
+                      hintText: 'Enter Number',
                       fillColor: Colors.black,
                       hintStyle: TextStyle(
                         color: Colors.grey.withOpacity(0.5),
@@ -251,8 +265,7 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
         child: Container(
           alignment: Alignment.center,
 
-          width: MediaQuery.of(context).size.width * AppWidgetSize.appButtonWidth,
-          height:
+           height:
           MediaQuery.of(context).size.height * AppWidgetSize.appButtonHeight,
           decoration: BoxDecoration(
             color: AppColor.appOrangeColor,
@@ -309,7 +322,8 @@ class _enterMobileNumberState extends State<EnterMobileNumber> {
         }
       });
     } else {
-      GlobalUtility() .showSnackBar(AppStrings.PleaseCheckInternetConnection, context);
+      GlobalUtility()
+          .showSnackBar(AppStrings.PleaseCheckInternetConnection, context);
     }
   }
 }

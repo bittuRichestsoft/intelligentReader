@@ -197,12 +197,12 @@ class _thirdPageState extends State<ThirdPage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         GestureDetector(
-         onTap: () async {
+          onTap: () async {
 //String? response = await flutterShareMe.shareToFacebook(url: "https://www.google.com/", msg: "msg");
 //debugPrint("shareToFacebook=$response");
-           onButtonTap("shareToFacebook");
+            onButtonTap("shareToFacebook");
 
-         },
+          },
           child: Column(
             children: [
               Text("data"),
@@ -214,8 +214,8 @@ class _thirdPageState extends State<ThirdPage> {
         ),
         GestureDetector(
           onTap: () async {
-          //  String? response = await flutterShareMe.shareToWhatsApp(url: "https://www.google.com/", msg: "msg");
-           // debugPrint("shareToFacebook=$response");
+            //  String? response = await flutterShareMe.shareToWhatsApp(url: "https://www.google.com/", msg: "msg");
+            // debugPrint("shareToFacebook=$response");
             onButtonTap("shareToWhatsApp");
           },
 
@@ -253,20 +253,20 @@ class _thirdPageState extends State<ThirdPage> {
         break;
     //  case Share.messenger:
     //    response = await flutterShareMe.shareToMessenger(url: url, msg: msg);
-     //   break;
+    //   break;
       case 'shareToTwitter':
         response = await flutterShareMe.shareToTwitter(url: url, msg: msg);
         break;
       case 'shareToWhatsApp':
-        /*if (file != null) {
+      /*if (file != null) {
           response = await flutterShareMe.shareToWhatsApp(
               imagePath: file!.path,
               fileType: videoEnable ? FileType.video : FileType.image);
         } else {*/
-          response = await flutterShareMe.shareToWhatsApp(msg: msg);
+        response = await flutterShareMe.shareToWhatsApp(msg: msg);
         //}
         break;
-     /* case Share.whatsapp_business:
+    /* case Share.whatsapp_business:
         response = await flutterShareMe.shareToWhatsApp(msg: msg);
         break;*/
       case 'shareToSystem':
@@ -276,7 +276,7 @@ class _thirdPageState extends State<ThirdPage> {
         response = await flutterShareMe.shareWhatsAppPersonalMessage(
             message: msg, phoneNumber: 'phone-number-with-country-code');
         break;
-     /* case 'shareToInstagram':
+    /* case 'shareToInstagram':
         response = await flutterShareMe.shareToInstagram(
             filePath: file!.path,
             fileType: videoEnable ? FileType.video : FileType.image);
