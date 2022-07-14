@@ -4,6 +4,7 @@ import 'package:intelligent_reader_app/FS/EnterMobileNumber.dart';
 import 'package:intelligent_reader_app/FS/FirstPage.dart';
 import 'package:intelligent_reader_app/FS/FourthPage.dart';
 import 'package:intelligent_reader_app/FS/HomeFlash.dart';
+import 'package:intelligent_reader_app/FS/MapSample/MapPage.dart';
 import 'package:intelligent_reader_app/FS/SubCategoryLst.dart';
 import 'package:intelligent_reader_app/FS/ThirdPage.dart';
 import 'package:intelligent_reader_app/FS/UpdateProfile.dart';
@@ -65,8 +66,8 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       home: (sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
-          ? EnterMobileNumber/*HomeFlash*/( )/*UpdateProfile()*/
-          : EnterMobileNumber/*HomeFlash*/( )/*UpdateProfile()*/,
+          ? MapPage/*HomeFlash*/( )/*UpdateProfile()*/
+          : MapPage/*HomeFlash*/( )/*UpdateProfile()*/,
       debugShowCheckedModeBanner: false,
       );
   }

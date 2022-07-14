@@ -5,13 +5,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SecondPage extends StatefulWidget {
+class BookingList extends StatefulWidget {
   @override
   _secondPageState createState() => _secondPageState();
 
 }
 
-class _secondPageState extends State<SecondPage> {
+class _secondPageState extends State<BookingList> {
 var sizeVal;
   @override
   Widget build(BuildContext context) {

@@ -5,11 +5,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intelligent_reader_app/Constants/ImagesString.dart';
 import 'package:intelligent_reader_app/FS/FirstPage.dart';
 import 'package:intelligent_reader_app/FS/FourthPage.dart';
-import 'package:intelligent_reader_app/FS/SecondPage.dart';
 import 'package:intelligent_reader_app/FS/ThirdPage.dart';
 import 'package:intelligent_reader_app/View/HomeScreen.dart';
 import '../Constants/app_color.dart';
 import '../Constants/app_widgetsize.dart';
+import 'Booking/BookingList.dart';
 int _selectedIndex = 0;
 class HomeFlash extends StatefulWidget {
 
@@ -91,7 +91,7 @@ class _homeFlashState extends State<HomeFlash> {
 
   static   final List<Widget> _pages = <Widget>[
     FirstPage(),
-    SecondPage(),
+    BookingList(),
     ThirdPage(),
     FourthPage()
   ];

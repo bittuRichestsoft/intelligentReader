@@ -20,7 +20,6 @@ class ImagesString {
   static String button_filled_rounded= 'assets/images/svg/button_filled_rounded.svg';
   static String circle_grey_filled= 'assets/images/svg/circle_grey_filled.svg';
   static String demo_user= 'assets/images/svg/demo_user.svg';
- // static String flash_service_text= 'assets/images/svg/flash_service_text.svg';
   static String group_login= 'assets/images/svg/group_login.svg';
   static String invite_friend= 'assets/images/svg/invite_friend.svg';
 
@@ -51,5 +50,8 @@ class ImagesString {
   static String profile_share_icon= 'assets/images/svg/profile_share_icon.svg';
   static String refer_earn_reward= 'assets/images/svg/refer_earn_reward.svg';
   static String search_another_loc= 'assets/images/svg/search_another_loc.svg';
+
+
+  static String homePng= 'assets/images/png/home.png';
 
  }
