@@ -201,6 +201,7 @@ attr initialActivityCount
 attr isLightTheme
 attr itemPadding
 attr keylines
+attr lStar
 attr lastBaselineToBottomHeight
 attr latLngBoundsNorthEastLatitude
 attr latLngBoundsNorthEastLongitude
@@ -1273,6 +1274,7 @@ id useLogo
 id video_control_view
 id video_progress_view
 id video_view
+id view_tree_lifecycle_owner
 id wide
 id width
 id withText
@@ -1434,6 +1436,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string facebook_app_id
+string fcm_fallback_notification_channel_label
 string search_menu_title
 string status_bar_notification_info_overflow
 string tw__composer_hint
@@ -1888,7 +1891,7 @@ styleable AspectRatioFrameLayout tw__frame_layout_aspect_ratio tw__frame_layout_
 styleable ButtonBarLayout allowStacking
 styleable Capability queryPatterns shortcutMatchRequired
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
-styleable ColorStateListItem android_color android_alpha alpha
+styleable ColorStateListItem android_color android_alpha android_lStar alpha lStar
 styleable CompoundButton android_button buttonTint buttonTintMode
 styleable CoordinatorLayout keylines statusBarBackground
 styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
@@ -1927,3 +1930,4 @@ styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable com_facebook_like_view com_facebook_auxiliary_view_position com_facebook_foreground_color com_facebook_horizontal_alignment com_facebook_object_id com_facebook_object_type com_facebook_style
 styleable tw__TweetView tw__action_color tw__action_highlight_color tw__container_bg_color tw__primary_text_color tw__tweet_actions_enabled tw__tweet_id
 xml file_paths
+xml flutter_image_picker_file_paths

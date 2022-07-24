@@ -66,8 +66,8 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       home: (sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
-          ? EnterMobileNumber()/*HomeFlash( )*//*UpdateProfile()*/
-          : EnterMobileNumber()/*HomeFlash( )*//*UpdateProfile()*/,
+          ? HomeFlash(0)/*HomeFlash( )*//*UpdateProfile()*/
+          : HomeFlash(0)/*HomeFlash( )*//*UpdateProfile()*/,
       debugShowCheckedModeBanner: false,
       );
   }

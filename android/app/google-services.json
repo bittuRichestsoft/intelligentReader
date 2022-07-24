@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "293547723570",
+    "project_id": "gettoken-62da3",
+    "storage_bucket": "gettoken-62da3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293547723570:android:f6fd1a38fad53f5478652b",
+        "android_client_info": {
+          "package_name": "com.example.intelligent_reader_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293547723570-5u6lvjjir0jej2gig5n6peq4tt6ihhd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLt8JDrPW__KKEtb0jy5rtMITckz6dWpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293547723570-5u6lvjjir0jej2gig5n6peq4tt6ihhd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

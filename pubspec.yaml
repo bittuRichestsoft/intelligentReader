@@ -50,6 +50,18 @@ dependencies:
   google_maps_flutter: ^2.1.8   #ios pending
   location: ^4.3.0
   #geocoder: ^0.2.1
+  change_app_package_name: ^1.1.0
+  plain_notification_token: ^0.0.4
+  get: ^4.6.5
+  image_picker: ^0.8.5+3
+  geocoding: ^2.0.4
+  flutter_countdown_timer: ^4.1.0
+  modal_bottom_sheet: ^2.1.0
+#  flutter_google_places: ^0.2.4
+  #flutter_google_places_autocomplete: 0.1.1
+  google_place: ^0.4.3
+ # flutter_dotenv: ^5.0.0
+
 
 dev_dependencies:
   flutter_test:

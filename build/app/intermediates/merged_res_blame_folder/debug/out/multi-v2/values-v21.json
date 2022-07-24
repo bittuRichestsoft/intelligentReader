@@ -23,6 +23,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-3\\d363e3b5616f580c766e3e2b3c05f27d\\transformed\\core-1.8.0\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,173,237,304,368,484,610,736,864,1036",
+                        "endLines": "2,3,4,5,6,7,8,9,12,17",
+                        "endColumns": "117,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "168,232,299,363,479,605,731,859,1031,1383"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,278,279,286,290,294,297",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,173,237,304,20276,20392,20849,21143,21438,21610",
+                        "endLines": "2,3,4,5,278,279,286,290,296,301",
+                        "endColumns": "117,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "168,232,299,363,20387,20513,20970,21266,21605,21957"
+                    }
+                },
+                {
                     "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-3\\e8c34ca77821555804e43a10b52264a1\\transformed\\jetified-tweet-composer-3.1.1\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,8",
@@ -77,25 +96,6 @@
                         "endLines": "282,285,289,293",
                         "endColumns": "12,12,12,12",
                         "endOffsets": "20681,20844,21138,21433"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\values-v21\\values-v21.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,13",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,173,237,304,368,484,610,736,864,1036",
-                        "endLines": "2,3,4,5,6,7,8,9,12,17",
-                        "endColumns": "117,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "168,232,299,363,479,605,731,859,1031,1383"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,278,279,286,290,294,297",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,173,237,304,20276,20392,20849,21143,21438,21610",
-                        "endLines": "2,3,4,5,278,279,286,290,296,301",
-                        "endColumns": "117,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "168,232,299,363,20387,20513,20970,21266,21605,21957"
                     }
                 }
             ]

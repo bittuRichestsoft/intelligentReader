@@ -2,9 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intelligent_reader_app/Constants/ImagesString.dart';
-import 'package:location/location.dart';
+import 'package:intelligent_reader_app/Utilities/CustomGooglePlaces.dart';
+import 'package:location/location.dart' as geo;
 import '../../Constants/AppFontFamily.dart';
 import '../../Constants/app_color.dart';
 import '../../Constants/app_widgetsize.dart';
@@ -14,19 +17,22 @@ class MapPage extends StatefulWidget {
   _mapPageState createState() => _mapPageState();
 }
 
-class _mapPageState extends State<MapPage> {
+class _mapPageState extends State<MapPage>   with SingleTickerProviderStateMixin  {
   GoogleMapController? _controller;
 
   var sizeVal;
-  Location locationObj = Location();
-  double curLat = 0.0;
+  geo.Location locationObj = geo.Location()  ;
+   double curLat = 0.0;
   double curLng = 0.0;
   double zoomLevel = 18;
   Set<Marker> _markers = {};
   bool _serviceEnabled = false;
-  PermissionStatus? _permissionGranted;
+  geo.PermissionStatus? _permissionGranted;
 var mapHeight=0.0,addressHeight=0.0;
   TextEditingController address_controller = TextEditingController();
+  Duration _elapsed = Duration.zero;
+  // 2. declare Ticker
+  late final Ticker _ticker;
 
   @override
   void initState() {
@@ -38,6 +44,23 @@ var mapHeight=0.0,addressHeight=0.0;
       debugPrint("excep= ${exp}");
     }
 
+    _ticker = this.createTicker((elapsed) {
+      setState(() {
+        _elapsed = elapsed;
+
+        var splittedStr= _elapsed.toString().split(".")[0];
+        var splittedStr2= splittedStr.toString().split(":")[2];
+
+
+        if(splittedStr2=="05"){
+          debugPrint("timer matchedAndStopped= $splittedStr2");
+          updateTextLoc();
+          stopTicker();
+        }
+      });
+    });
+
+
     super.initState();
   }
 
@@ -47,7 +70,7 @@ var mapHeight=0.0,addressHeight=0.0;
         .of(context)
         .size;
 mapHeight=sizeVal.height*0.6;
-addressHeight=sizeVal.height*0.4;
+//addressHeight=sizeVal.height*0.4;
 
     return Scaffold(
 
@@ -112,38 +135,9 @@ addressHeight=sizeVal.height*0.4;
 
                   ),
                 ),
-                /*GestureDetector(
-                  onTap: () {
-                    showBottomSht(context);
-                  },
-                  child: Container(height: 40, width: 40, color: Colors.green,),
-                )
-*/
 
-                addressHeight==sizeVal.height*0.5?
-            Container(
-              height: addressHeight,
-      margin: EdgeInsets.only(left: 10,right: 10) ,
-
-      child: Wrap(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,                    children: [
-
-            SizedBox(),
-            Text("Add New Address"),
-            IconButton(onPressed: (){
-            }, icon: Image.asset(ImagesString.circle_grey_filled))
-          ],),
-          emailField(),
-          emailField(),
-          emailField(),
-          emailField(),
-          submitButton()
-        ],
-      ),
-    ): Container(
-                  height: addressHeight,
+                Container(
+              //    height: addressHeight,
                   margin: EdgeInsets.only(left: 10,right: 10) ,
                   child:Column(
                   children: <Widget>[
@@ -151,8 +145,8 @@ addressHeight=sizeVal.height*0.4;
                     ListTile(
                       title:                       TextField(
                         controller: address_controller,
-
                         maxLines: 2,
+                        enabled: false,
                         style: TextStyle(color: Colors.black,fontFamily: AppFontFamily.RobotoMedium),
                          decoration:  InputDecoration(
                           enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appBlackColor)),
@@ -169,11 +163,7 @@ addressHeight=sizeVal.height*0.4;
                          trailing:                       InkWell(
                            onTap: (){
                              debugPrint("Change pressed");
-                             setState(() {
-                               addressHeight=sizeVal.height*0.5;
-                               mapHeight=sizeVal.height*0.5;
-                             });
-
+chooseFromGooglePlaces();
                            },
                            child: Text("Change",  style: TextStyle(color: AppColor.appOrangeColor,fontFamily: AppFontFamily.RobotoBold),
                            ),
@@ -198,18 +188,36 @@ addressHeight=sizeVal.height*0.4;
     debugPrint(
         "_onCameraMove   ${position.target.longitude}   ,  ${position.target
         .longitude}");
-  /*  final coordinates =   Coordinates(
-        curLat,curLng);
-    var addresses = await Geocoder.local.findAddressesFromCoordinates(
-        coordinates);
-    var first = addresses.first;
-    print(' ${first.locality}, ${first.adminArea},${first.subLocality}, ${first.subAdminArea},${first.addressLine}, ${first.featureName},${first.thoroughfare}, ${first.subThoroughfare}');
-*/
 
-    address_controller.text="${position.target.longitude}   ,  ${position.target
-        .longitude}" ;
+    startTicker();
+
+  }
+  void updateTextLoc() async {
+
+
+    List<Placemark> placemarks = await placemarkFromCoordinates(curLat,curLng);
+    debugPrint(
+        "updateTextLoc   ${placemarks.toString()}");
+    address_controller.text="${placemarks[0].name} ${placemarks[0].subLocality} ${placemarks[0].locality} ${placemarks[0].postalCode} ${placemarks[0].subAdministrativeArea}";
   }
 
+
+  @override
+  void dispose() {
+    _ticker.dispose();
+    super.dispose();
+  }
+  stopTicker(){
+    setState((){
+      _ticker.stop();
+    });
+  }
+  startTicker(){
+    setState((){
+      _ticker.stop();
+      _ticker.start();
+    });
+  }
 
   void getCurrentLocation() async {
     debugPrint("current loc fun calling");
@@ -251,9 +259,9 @@ addressHeight=sizeVal.height*0.4;
     }
 
     _permissionGranted = await locationObj.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
+    if (_permissionGranted ==  geo.PermissionStatus.denied) {
       _permissionGranted = await locationObj.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
+      if (_permissionGranted !=  geo.PermissionStatus.granted) {
         return;
       }
     }
@@ -349,10 +357,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,                    children: 
       onTap: ()
       {
         debugPrint("addMoreDetails pressed");
-        setState(() {
-          addressHeight=sizeVal.height*0.5;
-          mapHeight=sizeVal.height*0.5;
-        });
+
      //    updateProfileApi();
 
       },
@@ -368,18 +373,62 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,                    children: 
             borderRadius: BorderRadius.all(
                 Radius.circular(MediaQuery.of(context).size.width * AppWidgetSize.appButtonBorderRadius)),
           ),
-          child:  Text(
-              "Add More Details",
-              style: TextStyle(color: AppColor.appWhiteColor,
-                  fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentFontSize,
-                  fontFamily: AppFontFamily.RobotoMedium
-              )),
+          child:  InkWell(
+            onTap: () {
+              showBottom(context);
+            },
+
+            child: Text(
+                "Add More Details",
+                style: TextStyle(color: AppColor.appWhiteColor,
+                    fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentFontSize,
+                    fontFamily: AppFontFamily.RobotoMedium
+                )),
+          ),
         ),
       ),
     );
   }
 
+  void chooseFromGooglePlaces() async {
+    var places=    await   Navigator.push(context,  MaterialPageRoute(builder: (context) =>  CustomGooglePlaces()), );
+    debugPrint("Change pressed  $places" );
 
-}
+  }
+
+  void showBottom(BuildContext context)   {
+      showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          builder: (BuildContext bc){
+
+        return Container(
+            margin: EdgeInsets.only(left: 10,right: 10),
+            child: Wrap(
+              children: [
+                TextFormField(decoration: InputDecoration(labelText: "Your Location",suffix:TextButton(onPressed: (){}, child: Text("Change"))),),
+                TextFormField(decoration: InputDecoration(labelText: "Flat/building/Street"),),
+                Padding(
+                  padding: const EdgeInsets.only(),
+                  child: TextFormField(decoration: InputDecoration(labelText: "Your Name"),),
+                ),
+                SizedBox(height: 20,),
+                Text("Save asa",textAlign: TextAlign.left,),
+                SizedBox(height: 15,),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: [
+
+                  OutlinedButton(onPressed: (){}, child: Text("Home")),
+                  OutlinedButton(onPressed: (){}, child: Text("Office")),OutlinedButton(onPressed: (){}, child: Text("Other"))
+                ],),
+                SizedBox(height: 20,),
+                ElevatedButton(onPressed: (){}, child: Text("Add Flat/Building/Street"),style: ElevatedButton.styleFrom(primary: Colors.orange,fixedSize: Size(400, 50),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45))))
+              ],
+            ),
+          );});
+  }
+
+  }
+
+
 
 
