@@ -43,10 +43,8 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> getPhone() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
     String patientSession = await /*added */ prefs.getString('session_id').toString();
     print(TAG+"patientSession="+patientSession.toString());
-
     setState(() => sessionId =  patientSession.toString());
   }
 
