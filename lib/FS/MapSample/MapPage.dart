@@ -185,10 +185,10 @@ chooseFromGooglePlaces();
   void _onCameraMove(CameraPosition position) async {
     curLat = position.target.latitude;
     curLng = position.target.longitude;
-    debugPrint(
+    /*debugPrint(
         "_onCameraMove   ${position.target.longitude}   ,  ${position.target
         .longitude}");
-
+*/
     startTicker();
 
   }
@@ -272,7 +272,8 @@ chooseFromGooglePlaces();
     void showBottomSht(BuildContext context) {
       showModalBottomSheet(
           context: context,
-          builder: (BuildContext bc){
+isScrollControlled: true,
+           builder: (BuildContext bc){
             return Container(
               margin: EdgeInsets.only(left: 10,right: 10),
 

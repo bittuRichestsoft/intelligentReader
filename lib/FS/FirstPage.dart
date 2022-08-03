@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -24,10 +25,18 @@ class _firstPageState extends State<FirstPage> {
 
   int pageIndex=0,totalPage=4;
 
+  List<String> imagesList = [
+    ImagesString.bottom_home_disabled,
+    ImagesString.bottom_profile_selected,
+    ImagesString.bottom_reward_enabled,
+  ];
+
   Timer? _timer;
   PageController _pageController = PageController(
     initialPage: 0,
   );
+  final CarouselController _controller = CarouselController();
+
   List<String> widgetList = ['A', 'B', 'C'];
   List<Widget> _demo=[
     Container(height: 300,color: Colors.amber),
@@ -255,49 +264,37 @@ class _firstPageState extends State<FirstPage> {
   Widget  bannerImages() {
 
   return  Container(
-    height: sizeVal.width*0.3,
+    height: sizeVal.height*0.24,
     child: Column(
         children: [
+      CarouselSlider(
+      carouselController: _controller,
+      options: CarouselOptions(
+        height: MediaQuery.of(context).size.height * 0.18,
+        autoPlay: true,
+        //scrollDirection: Axis.vertical,
+        onPageChanged: (index, reason) {
+          setState(
+                () {
+                  pageIndex = index;
+            },
+          );
+        },
+      ),
+      items: _demo.map((item) =>
           Container(
-            height: sizeVal.width*0.2,
-            width: sizeVal.width,
-            child:PageView.builder(
-                itemCount: 4,
-                scrollDirection: Axis.horizontal,
-                controller: _pageController,
-                onPageChanged: (value) {
-                  //When page change, start the controller
-setState(() {
-  pageIndex=value;
-});
-                },
-                itemBuilder: (BuildContext context, int index) {
+              color: Colors.pink,
+              width: MediaQuery.of(context).size.width*0.7,
+              child: item /*SvgPicture.asset(item, height: MediaQuery.of(context).size.height * 0.4,)*/))
+          .toList(),
 
-                  return Card(
-                      child: Center(child: Container(
-                      width: sizeVal.width*0.18,
-                      child:CachedNetworkImage(
-                      imageUrl: "http://via.placeholder.com/200x150",
-                      imageBuilder: (context, imageProvider) => Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: imageProvider,
-                          fit: BoxFit.cover,
-                          colorFilter:
-                          ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
-                    ),
-                  ),
-                  placeholder: (context, url) => CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
-                  ),
-                  )));
-                })
-          ),
-//          SizedBox(height: 4,),
+    ),
+           SizedBox(height: sizeVal.height*0.03,),
           CarouselIndicator(
             count: _demo.length,
             color: AppColor.appHintColor,
             index: pageIndex,
+
 activeColor: AppColor.appOrangeColor,
   width: 10,        ),
         ],

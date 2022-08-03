@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\projects\\new service\\CloneFromReader\\intelligentReader\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+            "outputFile": "/Users/mac/Desktop/Android Projects/new Project/Flutter/IntelligentReader All Things/git_reader/intelligentReader/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-3\\0090a7e560d1bb966d67181cd4b0ebca\\transformed\\jetified-twitter-core-3.1.1\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "55,116,168,226,285",
-                        "endColumns": "60,51,57,58,54",
-                        "endOffsets": "111,163,221,280,335"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-3\\e0f3681119c9d3eda0253a1be73965ba\\transformed\\appcompat-1.0.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "/Users/mac/.gradle/caches/transforms-3/e0f3681119c9d3eda0253a1be73965ba/transformed/appcompat-1.0.0/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "11",
                         "endColumns": "13",
                         "endOffsets": "612"
+                    }
+                },
+                {
+                    "source": "/Users/mac/.gradle/caches/transforms-3/0090a7e560d1bb966d67181cd4b0ebca/transformed/jetified-twitter-core-3.1.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,116,168,226,285",
+                        "endColumns": "60,51,57,58,54",
+                        "endOffsets": "111,163,221,280,335"
                     }
                 }
             ]

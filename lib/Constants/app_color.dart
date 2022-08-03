@@ -2,6 +2,7 @@ import 'dart:ui';
 
 class AppColor{
   static Color linkedInBtn = Color(0xff0077b5);
+  static Color blueColor = Color(0xff02298e);
 
   static Color linkedInButtonColor = Color(0xff0077b5);
   static Color appOrangeColor = Color(0xffea5205);

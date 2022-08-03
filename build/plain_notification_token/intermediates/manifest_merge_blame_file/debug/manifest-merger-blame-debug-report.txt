@@ -4,23 +4,23 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
-6-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml
+6-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="16" />
-7-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml
+7-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml
 8
 9    <application>
-9-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml:3:5-11:19
+9-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml:3:5-11:19
 10        <service
-10-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml:4:9-10:19
+10-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml:4:9-10:19
 11            android:name="net.kikuchy.plain_notification_token.NewTokenReceiveService"
-11-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml:5:13-51
+11-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml:5:13-51
 12            android:exported="false" >
-12-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml:6:13-37
+12-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml:6:13-37
 13            <intent-filter>
-13-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml:7:13-9:29
+13-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml:7:13-9:29
 14                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-14-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml:8:17-78
-14-->E:\flutter 3_0_3_Stable\flutter\.pub-cache\hosted\pub.dartlang.org\plain_notification_token-0.0.4\android\src\main\AndroidManifest.xml:8:25-75
+14-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml:8:17-78
+14-->/Users/mac/Desktop/All_Used_Projects/flutter/.pub-cache/hosted/pub.dartlang.org/plain_notification_token-0.0.4/android/src/main/AndroidManifest.xml:8:25-75
 15            </intent-filter>
 16        </service>
 17    </application>

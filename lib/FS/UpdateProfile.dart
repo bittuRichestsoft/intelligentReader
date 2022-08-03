@@ -322,7 +322,7 @@ class _updateProfileState extends State<UpdateProfile>{
           currentFocus.unfocus();
         }
 
-        String apiResponse = await WebApi().post_with_header_with_map(map, ApiUrl.updateProfile, token);
+    /*    String apiResponse = await WebApi().post_with_header_with_map(map, ApiUrl.updateProfile, token);
 
         setState(() {
           Navigator.of(context).pop();
@@ -343,7 +343,7 @@ class _updateProfileState extends State<UpdateProfile>{
           } else {
             GlobalUtility().showSnackBar(message, context);
           }
-        });
+        });*/
       }
 
     } else {
@@ -352,18 +352,23 @@ class _updateProfileState extends State<UpdateProfile>{
   }
 
   bool validate() {
-    if (addressController.text.replaceAll(" ", "") == "") {
-      GlobalUtility().showSnackBar("Enter subject", context);
+
+    if (name_controller.text.replaceAll(" ", "") == "") {
+      GlobalUtility().showSnackBar("Enter Name", context);
       return false;
     }
-    if(selectedComplaintType == null)
+    if (phone_controller.text.replaceAll(" ", "") == "" || phone_controller.text.length!=10  ) {
+      GlobalUtility().showSnackBar("Enter valid 10 digit number", context);
+      return false;
+    }
+    if(emailController.text.replaceAll(" ","")== "" || !GlobalUtility().validateEmail(emailController.text) )
     {
-      GlobalUtility().showSnackBar("Choose Complaint Type", context);
+      GlobalUtility().showSnackBar("Enter valid email", context);
       return false;
     }
 
-    if (emailController.text.replaceAll(" ", "") == "") {
-      GlobalUtility().showSnackBar("Enter emailController", context);
+    if (addressController.text.replaceAll(" ", "") == "") {
+      GlobalUtility().showSnackBar("Enter valid address", context);
       return false;
     }
 
@@ -454,34 +459,28 @@ class _updateProfileState extends State<UpdateProfile>{
           SizedBox(width: 15,),
           Flexible(
             flex: 6,
-            child: Row(
-              children: [
-                Flexible(
-                  flex: 5,
-                  child: TextField(
-                    controller: name_controller,
-                    // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    maxLines: 1,
-                    textInputAction: TextInputAction.done,
-                    style: TextStyle(
-                      color: Colors
-                          .black, /*fontSize: MediaQuery.of(context).size.height * 0.02*/
-                    ),
-                     decoration:  InputDecoration(
-                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appBlackColor)),
-                      focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appOrangeColor)),
-                      border: UnderlineInputBorder(),
-                      fillColor: AppColor.appHintColor,
-                       hintText: 'Enter Your Name',
+            child: TextFormField(
+              controller: name_controller,
+              // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              maxLines: 1,
+              textInputAction: TextInputAction.done,
+              style: TextStyle(
+                color: Colors
+                    .black, /*fontSize: MediaQuery.of(context).size.height * 0.02*/
+              ),
+
+               decoration:  InputDecoration(
+                enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appBlackColor)),
+                focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColor.appOrangeColor)),
+                border: UnderlineInputBorder(),
+                fillColor: AppColor.appHintColor,
+                 hintText: 'Enter Your Name',
 //label: ,
-                      labelStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentSmallFontSize,
-                          color: AppColor.appHintColor,
-                          fontFamily: AppFontFamily.RobotoMedium),
-                    ),
-                  ),
-                ),
-              ],
+                labelStyle: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * AppWidgetSize.appContentSmallFontSize,
+                    color: AppColor.appHintColor,
+                    fontFamily: AppFontFamily.RobotoMedium),
+              ),
             ),
           )
         ],

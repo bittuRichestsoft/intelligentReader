@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\projects\\new service\\CloneFromReader\\intelligentReader\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
+            "outputFile": "/Users/mac/Desktop/Android Projects/new Project/Flutter/IntelligentReader All Things/git_reader/intelligentReader/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-3\\e0f3681119c9d3eda0253a1be73965ba\\transformed\\appcompat-1.0.0\\res\\values-port\\values-port.xml",
+                    "source": "/Users/mac/.gradle/caches/transforms-3/e0f3681119c9d3eda0253a1be73965ba/transformed/appcompat-1.0.0/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

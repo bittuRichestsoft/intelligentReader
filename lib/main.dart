@@ -11,6 +11,7 @@ import 'package:intelligent_reader_app/FS/UpdateProfile.dart';
 import 'package:intelligent_reader_app/View/LoginScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'ScanIntro1.dart';
 import 'View/HomeScreen.dart';
 import 'Utilities/PreferenceUtils.dart';
 
@@ -43,8 +44,10 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> getPhone() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
     String patientSession = await /*added */ prefs.getString('session_id').toString();
     print(TAG+"patientSession="+patientSession.toString());
+
     setState(() => sessionId =  patientSession.toString());
   }
 
@@ -63,9 +66,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      home: (sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
-          ? HomeFlash(0)/*HomeFlash( )*//*UpdateProfile()*/
-          : HomeFlash(0)/*HomeFlash( )*//*UpdateProfile()*/,
+      home: HomeFlash(0),
+
+      /*(sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
+          ? HomeFlash(0)*//*HomeFlash( )*//**//*UpdateProfile()*//*
+          : HomeFlash(0)*//*HomeFlash( )*//**//*UpdateProfile()*//*,*/
       debugShowCheckedModeBanner: false,
       );
   }

@@ -1,4 +1,0 @@
-#Sun Jul 10 23:49:52 IST 2022
-base.0=E\:\\projects\\new service\\CloneFromReader\\intelligentReader\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

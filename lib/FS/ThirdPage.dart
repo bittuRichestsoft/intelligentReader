@@ -85,7 +85,7 @@ Container(
                             AppWidgetSize.appButtonBorderRadius)),
                       color: Colors.grey,
                     ),
-                    child: SvgPicture.asset(ImagesString.social_1),
+                    child: SvgPicture.asset(ImagesString.reward2),
                   ),
                     title: Text("Invite your friends to Flash Services"),
                   ),
@@ -215,9 +215,21 @@ Container(
           },
           child: Column(
             children: [
-              SvgPicture.asset(ImagesString.social_1,
+              Container(
+                padding: EdgeInsets.all(8),
+                height: 40,width: 40,
+                decoration: BoxDecoration(   borderRadius: BorderRadius.all(Radius.circular(
+                    MediaQuery
+                        .of(context)
+                        .size
+                        .width *
+                        AppWidgetSize.appButtonBorderRadius)),
+                  color: Colors.white,
+                ),
+                child: SvgPicture.asset(ImagesString.social_2_1),
+              ),             /* SvgPicture.asset(ImagesString.social_1_1,
                 width: sizeVal.width*0.1,
-                height: sizeVal.width*0.1,),
+                height: sizeVal.width*0.1,),*/
               Text("data"),
             ],
           ),
@@ -231,19 +243,36 @@ Container(
 
           child: Column(
             children: [
-               SvgPicture.asset(ImagesString.reward2,
-              )
-              ,
-              Text("data"),           ],
+    Container(
+    padding: EdgeInsets.all(8),
+    height: 40,width: 40,
+    decoration: BoxDecoration(   borderRadius: BorderRadius.all(Radius.circular(
+    MediaQuery
+        .of(context)
+        .size
+        .width *
+    AppWidgetSize.appButtonBorderRadius)),
+    color: Colors.white,
+    ),
+    child: SvgPicture.asset(ImagesString.social_1_1),
+    ),         Text("data"),           ],
           ),
         ),
         Column(
           children: [
-            SvgPicture.asset(ImagesString.reward2,
-              /*width: sizeVal.width*0.2,
-              height: sizeVal.width*0.2,*/)
-            ,
-            Text("data"),],
+        Container(
+        padding: EdgeInsets.all(8),
+    height: 40,width: 40,
+    decoration: BoxDecoration(   borderRadius: BorderRadius.all(Radius.circular(
+    MediaQuery
+        .of(context)
+        .size
+        .width *
+    AppWidgetSize.appButtonBorderRadius)),
+    color: Colors.white,
+    ),
+    child: SvgPicture.asset(ImagesString.social_1_1),
+    ),       Text("data"),],
         )
 
       ],

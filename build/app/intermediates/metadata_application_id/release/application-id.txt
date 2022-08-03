@@ -1,1 +1,0 @@
-com.example.intelligent_reader_app

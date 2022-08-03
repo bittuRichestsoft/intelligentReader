@@ -35,6 +35,9 @@ class ImagesString {
   static String social_1= 'assets/images/svg/social_1.svg';
   static String social_2= 'assets/images/svg/social_2.svg';
   static String social_3= 'assets/images/svg/social_3.svg';
+  static String social_1_1= 'assets/images/svg/messagenr_icon.svg';
+  static String social_2_1= 'assets/images/svg/whatsapp_chat_sms.svg';
+
 
 
 

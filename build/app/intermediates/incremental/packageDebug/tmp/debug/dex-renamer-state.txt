@@ -1,9 +1,9 @@
-#Sun Jul 24 23:54:39 IST 2022
-base.2=E\:\\projects\\new service\\CloneFromReader\\intelligentReader\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
+#Tue Jul 26 09:50:14 IST 2022
+base.2=/Users/mac/Desktop/Android Projects/new Project/Flutter/IntelligentReader All Things/git_reader/intelligentReader/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex
 path.2=classes3.dex
-base.1=E\:\\projects\\new service\\CloneFromReader\\intelligentReader\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
+base.1=/Users/mac/Desktop/Android Projects/new Project/Flutter/IntelligentReader All Things/git_reader/intelligentReader/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
 path.1=classes2.dex
-base.0=E\:\\projects\\new service\\CloneFromReader\\intelligentReader\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+base.0=/Users/mac/Desktop/Android Projects/new Project/Flutter/IntelligentReader All Things/git_reader/intelligentReader/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
