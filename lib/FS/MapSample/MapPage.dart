@@ -6,6 +6,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intelligent_reader_app/Constants/ImagesString.dart';
+import 'package:intelligent_reader_app/FS/MapSample/ChooseSlotAndPlaceOrder.dart';
 import 'package:intelligent_reader_app/Utilities/CustomGooglePlaces.dart';
 import 'package:location/location.dart' as geo;
 import '../../Constants/AppFontFamily.dart';
@@ -422,7 +423,12 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,                    children: 
                   OutlinedButton(onPressed: (){}, child: Text("Office")),OutlinedButton(onPressed: (){}, child: Text("Other"))
                 ],),
                 SizedBox(height: 20,),
-                ElevatedButton(onPressed: (){}, child: Text("Add Flat/Building/Street"),style: ElevatedButton.styleFrom(primary: Colors.orange,fixedSize: Size(400, 50),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45))))
+                ElevatedButton(onPressed: (){
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) =>   ChooseSlottAndPlaceOrder()),
+                  );
+                }, child: Text("Add Flat/Building/Street"),style: ElevatedButton.styleFrom(primary: Colors.orange,fixedSize: Size(400, 50),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45))))
               ],
             ),
           );});

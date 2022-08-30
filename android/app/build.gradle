@@ -44,7 +44,8 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.intelligent_reader_app"
+        applicationId "com.FlashScreen.flashservice"
+        // applicationId "com.example.intelligent_reader_app"
 /*com.FlashScreen.flashservice*/
         minSdkVersion 20
         targetSdkVersion flutter.targetSdkVersion

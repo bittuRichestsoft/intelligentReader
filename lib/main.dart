@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intelligent_reader_app/FS/EnterMobileNumber.dart';
-import 'package:intelligent_reader_app/FS/FirstPage.dart';
-import 'package:intelligent_reader_app/FS/FourthPage.dart';
 import 'package:intelligent_reader_app/FS/HomeFlash.dart';
-import 'package:intelligent_reader_app/FS/MapSample/MapPage.dart';
-import 'package:intelligent_reader_app/FS/SubCategoryLst.dart';
-import 'package:intelligent_reader_app/FS/ThirdPage.dart';
-import 'package:intelligent_reader_app/FS/UpdateProfile.dart';
-import 'package:intelligent_reader_app/View/LoginScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'ScanIntro1.dart';
-import 'View/HomeScreen.dart';
 import 'Utilities/PreferenceUtils.dart';
 
 
@@ -66,11 +57,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      home: HomeFlash(0),
+      home: /*HomeFlash(0)*/
 
-      /*(sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
-          ? HomeFlash(0)*//*HomeFlash( )*//**//*UpdateProfile()*//*
-          : HomeFlash(0)*//*HomeFlash( )*//**//*UpdateProfile()*//*,*/
+      (sessionId == null || sessionId == "" ||  sessionId.toLowerCase() == "null"  )
+          ? EnterMobileNumber()
+          : HomeFlash(0),
       debugShowCheckedModeBanner: false,
       );
   }

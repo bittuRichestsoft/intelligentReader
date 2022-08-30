@@ -1,4 +1,4 @@
-package com.example.intelligent_reader_app
+package com.FlashScreen.flashservice
 
 import io.flutter.embedding.android.FlutterActivity
 

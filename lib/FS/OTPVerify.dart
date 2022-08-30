@@ -1,26 +1,36 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/services.dart';
 import 'package:intelligent_reader_app/FS/ChooseLocation.dart';
 import 'package:intelligent_reader_app/FS/EnterMobileNumber.dart';
+import 'package:intelligent_reader_app/FS/HomeFlash.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 
+import '../Constants/ApiUrl.dart';
 import '../Constants/AppFontFamily.dart';
 import '../Constants/ImagesString.dart';
 import '../Constants/app_color.dart';
+import '../Constants/app_strings.dart';
 import '../Constants/app_widgetsize.dart';
+import '../Utilities/GlobalUtility.dart';
+import '../Utilities/PreferenceUtils.dart';
+import '../webApi/WebApi.dart';
 
 
 class OTPVerify extends StatefulWidget {
   String number= "";
-  OTPVerify(holdNumber){
+  String strOTP= "";
+  OTPVerify(holdNumber,holdOTP){
     number=holdNumber;
+    strOTP=holdOTP;
   }
 
   @override
-  _oTPVerifyState createState() => _oTPVerifyState(number);
+  _oTPVerifyState createState() => _oTPVerifyState(number,strOTP);
 }
 
 class _oTPVerifyState extends State<OTPVerify> {
@@ -31,11 +41,19 @@ class _oTPVerifyState extends State<OTPVerify> {
   var countryCodeValue;
   bool isNumberEnabled = true;
   String phnNmbr="";
+  String otp="";
 
-  _oTPVerifyState(holdNumber){
+  _oTPVerifyState(holdNumber,holdOTP){
     phnNmbr=holdNumber;
+    otp=holdOTP;
   }
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  //  GlobalUtility().showSnackBar(otp, context);
 
+}
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +63,8 @@ class _oTPVerifyState extends State<OTPVerify> {
     return Scaffold(
         body: Stack(
           children: [
-
-            Image(image: AssetImage(          ImagesString.cheerful_plumber_plumber_png,),fit:BoxFit.fitWidth,
+            Image(image: AssetImage(
+              ImagesString.cheerful_plumber_plumber_png,),fit:BoxFit.fitWidth,
               height: sizeVal.height,
               width: sizeVal.width,),
             Container(
@@ -123,7 +141,6 @@ class _oTPVerifyState extends State<OTPVerify> {
                                   fontSize: sizeVal.width * 0.02,
                                 ))),
                     numberAndEdit(),
-
                         OtpFields(),
                         Container(
                           alignment: Alignment.centerLeft,
@@ -131,13 +148,12 @@ class _oTPVerifyState extends State<OTPVerify> {
                           child:
                           Text("Resend OTP",
                               textAlign: TextAlign.left,
-
                               style: TextStyle(
                                 fontSize: sizeVal.width * 0.035,
                               color: AppColor.linkedInButtonColor
                               )),
                         ),
-                        sendOtpButton()
+                        verifyOtpButton()
                       ],
                     ),
                   ),
@@ -150,14 +166,14 @@ class _oTPVerifyState extends State<OTPVerify> {
     );
   }
 
-  Widget sendOtpButton() {
+  Widget verifyOtpButton() {
     return GestureDetector(
       onTap: () {
-        /* sendOtpApi();*/
-        Navigator.push(
+        callVerifyOtpApi();
+       /* Navigator.push(
           context,
           MaterialPageRoute(builder: (context) =>   ChooseLocation()),
-        );
+        );*/
 
       },
       child: Visibility(
@@ -206,6 +222,7 @@ class _oTPVerifyState extends State<OTPVerify> {
  onCompleted: (pin) {
  //print("Completed: " + pin);
  completeOtp = pin;
+ callVerifyOtpApi();
  },
  onChanged: (pin){
  print("on Changed: " + pin);
@@ -218,7 +235,7 @@ class _oTPVerifyState extends State<OTPVerify> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-      Text("+91$phnNmbr",
+      Text("+91$phnNmbr  $otp",
       style: TextStyle(
         color: AppColor.appBlackColor,
         fontSize: MediaQuery
@@ -247,6 +264,63 @@ class _oTPVerifyState extends State<OTPVerify> {
           /*fontFamily: AppFontFamily.UBUNTU_MEDIUM*/)),
     )
     ],);
+  }
+  callVerifyOtpApi( ) async {
+
+    var check_internet = await GlobalUtility().isConnected();
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    if (check_internet) {
+      Map map = {
+        "Phone": phnNmbr,
+        "OTP":completeOtp,
+      };
+
+      GlobalUtility().showLoaderDialog(context);
+
+      if (!currentFocus.hasPrimaryFocus) {
+        currentFocus.unfocus();
+      }
+
+      String apiResponse = await WebApi().send_request_with_map(map, ApiUrl.VerifyOTP);
+      setState(() {
+        Navigator.of(context).pop();
+        var jsondata = json.decode(apiResponse);
+        String message = jsondata['Message'];
+        String status = jsondata['Code'];
+        if (status == "200") {
+          String token = jsondata['token'];
+
+           PreferenceUtils preferenceUtils= PreferenceUtils();
+           preferenceUtils.setSessionId(token);
+          String email = jsondata['Email'];
+preferenceUtils.setEmail(email);
+           /*"token": "Zm9zOGplVDFldUhkcndwa0NJWmdBcWJrekgxNWNPaGoyWGpZSDhudVVDYTRDWEg2WEtyV3ZiSWdKV3M462fd7654a2dcf",
+    "customerId": 1190,
+    "Name": "bittu test User",
+    "Email": "iww.bittu@gmail.com",
+    "Number": "9855748751",
+    "ReferCode": "bi72482",
+    "ReferBy": "",
+    "IsUpdatedProfile": 1
+*/
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) =>   HomeFlash(0)),
+          );
+
+        } else if (status == "400") {
+
+          GlobalUtility().showSnackBar(message, context);
+        } else if (status == "403") {
+          GlobalUtility().setSessionEmpty(context);
+        } else {
+          GlobalUtility().showSnackBar(message, context);
+        }
+      });
+    } else {
+      GlobalUtility()
+          .showSnackBar(AppStrings.PleaseCheckInternetConnection, context);
+    }
   }
 
 }

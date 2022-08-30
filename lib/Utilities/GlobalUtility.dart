@@ -66,7 +66,7 @@ class GlobalUtility {
         children: [
           CircularProgressIndicator(),
           Container(
-              margin: EdgeInsets.only(left: 7), child: Text( 'please_wait')),
+              margin: EdgeInsets.only(left: 7), child: Text( 'Please wait')),
         ],
       ),
     );

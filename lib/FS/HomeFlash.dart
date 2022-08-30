@@ -9,6 +9,7 @@ import 'package:intelligent_reader_app/FS/ThirdPage.dart';
 import 'package:intelligent_reader_app/View/HomeScreen.dart';
 import '../Constants/app_color.dart';
 import '../Constants/app_widgetsize.dart';
+import '../Utilities/PreferenceUtils.dart';
 import 'Booking/BookingList.dart';
 int _selectedIndex = 0;
 class HomeFlash extends StatefulWidget {
@@ -25,10 +26,15 @@ class HomeFlash extends StatefulWidget {
 
 class _homeFlashState extends State<HomeFlash> {
   var sizeVal;
+  String sessionId="";
   TextEditingController searchLocController = TextEditingController();
 
 
-
+@override
+  void initState() {
+getSavedData();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     sizeVal = MediaQuery
@@ -99,6 +105,12 @@ class _homeFlashState extends State<HomeFlash> {
 Widget  tabItem(String strImg) {
 return  SvgPicture.asset(strImg,height: 20,width: 40,);
 }
+
+  void getSavedData() async {
+    PreferenceUtils preferenceUtils= PreferenceUtils();
+  sessionId= await     preferenceUtils.getSessionId();
+debugPrint("Home sessionId=$sessionId");
+  }
 
 }
 

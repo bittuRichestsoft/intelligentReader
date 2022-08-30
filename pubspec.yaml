@@ -58,11 +58,16 @@ dependencies:
   geocoding: ^2.0.4
   flutter_countdown_timer: ^4.1.0
   modal_bottom_sheet: ^2.1.0
+  flutter_screen_scaling: ^3.3.2+3
+  geolocator: ^9.0.1
+
+
+
 #  flutter_google_places: ^0.2.4
   #flutter_google_places_autocomplete: 0.1.1
   google_place: ^0.4.3
  # flutter_dotenv: ^5.0.0
-  select_form_field: ^2.2.0
+
 
 dev_dependencies:
   flutter_test:
@@ -140,6 +145,7 @@ flutter:
     - family: RobotoBlack
       fonts:
         - asset: assets/font/Roboto-Black.ttf
+
     - family: RobotoBlackItalic
       fonts:
         - asset: assets/font/Roboto-BlackItalic.ttf

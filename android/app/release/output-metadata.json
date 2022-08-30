@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.intelligent_reader_app",
+  "applicationId": "com.FlashScreen.flashservice",
   "variantName": "release",
   "elements": [
     {
