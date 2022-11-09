@@ -1,11 +1,9 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
+
 //import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_place/google_place.dart';
 //import 'package:letsmeetappcode/httppp/ApiUrl.dart';
-
 
 class CustomGooglePlaces extends StatefulWidget {
   @override
@@ -15,13 +13,13 @@ class CustomGooglePlaces extends StatefulWidget {
 class _HomePageState extends State<CustomGooglePlaces> {
   GooglePlace? googlePlace;
   List<AutocompletePrediction> predictions = [];
-  String choosedAddress="";
+  String choosedAddress = "";
   final homeScaffoldKey = GlobalKey<ScaffoldState>();
-
 
   @override
   void initState() {
-    String apiKey = /*ApiUrl.kGoogleApiKey;*/ "AIzaSyBl8YPYAhb7DmlmyjK81AJX-hdtavJi-es"; // DotEnv().env['API_KEY'];
+    String
+        apiKey = /*ApiUrl.kGoogleApiKey;*/ "AIzaSyBl8YPYAhb7DmlmyjK81AJX-hdtavJi-es"; // DotEnv().env['API_KEY'];
     googlePlace = GooglePlace(apiKey);
 /*    onError: onError,
     mode: _mode,
@@ -33,189 +31,183 @@ class _HomePageState extends State<CustomGooglePlaces> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          key: homeScaffoldKey,
-          body: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                      'images/inner_page_background.jpg',
+      key: homeScaffoldKey,
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  'images/inner_page_background.jpg',
+                ),
+                fit: BoxFit.fill)),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 75.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      size: 24,
                     ),
-                    fit: BoxFit.fill)),
-            child:Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 75.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          size: 24,
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).maybePop();
-                        },
+                    onPressed: () {
+                      Navigator.of(context).maybePop();
+                    },
+                  ),
+                  Center(
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.2,
                       ),
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.2,
-                          ),
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.1,
-                          alignment: Alignment.topCenter,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image:
-                                  AssetImage('images/logo_final_big.png'),
-                                )),
-                          ),
-                        ),
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                          image: AssetImage('images/logo_final_big.png'),
+                        )),
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Stack(
-                          children: <Widget>[
-                            Positioned(
-                              top: 0.0,
-                              right: 0.0,
-                              left:
-                              MediaQuery.of(context).size.width * 0.1 +
-                                  1,
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  left: MediaQuery.of(context).size.width *
-                                      0.03,
-                                  right: MediaQuery.of(context).size.width *
-                                      0.02,
-                                  top: MediaQuery.of(context).size.width *
-                                      0.04,
-                                  bottom:
-                                  MediaQuery.of(context).size.width *
-                                      0.02,
-                                ),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context).maybePop();
-                                  },
-                                  child: Container(
-                                    width:
-                                    MediaQuery.of(context).size.width *
-                                        0.08,
-                                    height:
-                                    MediaQuery.of(context).size.height *
-                                        0.05,
-                                    child: SvgPicture.asset(
-                                      "images/svgicons/002-error.svg",
-                                    ),
-                                  ),
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          top: 0.0,
+                          right: 0.0,
+                          left: MediaQuery.of(context).size.width * 0.1 + 1,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * 0.03,
+                              right: MediaQuery.of(context).size.width * 0.02,
+                              top: MediaQuery.of(context).size.width * 0.04,
+                              bottom: MediaQuery.of(context).size.width * 0.02,
+                            ),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).maybePop();
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.08,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.05,
+                                child: SvgPicture.asset(
+                                  "images/svgicons/002-error.svg",
                                 ),
                               ),
                             ),
-                          ],
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.05,right: MediaQuery.of(context).size.width*0.05,),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      labelText: "Search",
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.blue,
-                          width: 2.0,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black54,
-                          width: 2.0,
-                        ),
-                      ),
+                      ],
                     ),
-                    onChanged: (value) {
-                      if (value.isNotEmpty) {
-                        autoCompleteSearch(value);
-                        setState(() {
-                          choosedAddress=value ;
-                        });
-                      } else {
-                        if (predictions.length > 0 && mounted) {
-                          setState(() {
-                            predictions = [];
-                          });
-                        }
-                      }
-                    },
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.05,
+                right: MediaQuery.of(context).size.width * 0.05,
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: "Search",
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.blue,
+                      width: 2.0,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black54,
+                      width: 2.0,
+                    ),
                   ),
                 ),
-                Container(
-                  //      height: 40,
-                  child: ListTile(
+                onChanged: (value) {
+                  if (value.isNotEmpty) {
+                    autoCompleteSearch(value);
+                    setState(() {
+                      choosedAddress = value;
+                    });
+                  } else {
+                    if (predictions.length > 0 && mounted) {
+                      setState(() {
+                        predictions = [];
+                      });
+                    }
+                  }
+                },
+              ),
+            ),
+            Container(
+              //      height: 40,
+              child: ListTile(
+                leading: CircleAvatar(
+                  child: Icon(
+                    Icons.water_damage_sharp,
+                    color: Colors.white,
+                  ),
+                ),
+                title: Text((choosedAddress.replaceAll(" ", "") == "")
+                    ? "Search Your Address"
+                    : choosedAddress),
+                onTap: () {
+                  debugPrint(
+                      "Custom Address before space=}" + choosedAddress + "{");
+                  choosedAddress = choosedAddress.trimLeft();
+                  choosedAddress = choosedAddress.trimRight();
+                  debugPrint(
+                      "Custom Address after space=}" + choosedAddress + "{");
+                  if (choosedAddress == "") {
+                    showSnackBar("Please enter any location name");
+                  } else {
+                    Navigator.of(context).pop(
+                        {'choosedLoc': choosedAddress.replaceAll(",", "")});
+                  }
+                },
+              ),
+            ),
+            SizedBox(),
+            Expanded(
+              child: ListView.builder(
+                itemCount: predictions.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
                     leading: CircleAvatar(
                       child: Icon(
-                        Icons.water_damage_sharp,
+                        Icons.pin_drop,
                         color: Colors.white,
                       ),
                     ),
-                    title: Text((choosedAddress.replaceAll(" ","")=="")? "Search Your Address": choosedAddress),
+                    title: Text(predictions[index].description!),
                     onTap: () {
-                      debugPrint("Custom Address before space=}"+choosedAddress+"{");
-                      choosedAddress=choosedAddress.trimLeft();
-                      choosedAddress=choosedAddress.trimRight();
-                      debugPrint("Custom Address after space=}"+choosedAddress+"{");
-                      if (choosedAddress == "") {
-                        showSnackBar("Please enter any location name");
-                      }
-                      else{
-                        Navigator
-                            .of (context)
-                            .pop({'choosedLoc':choosedAddress.replaceAll(",", "")});
-                      }
+                      debugPrint("choosed " + predictions[index].description!);
+                      Navigator.of(context).pop({
+                        'choosedLoc':
+                            predictions[index].description!.replaceAll(",", "")
+                      });
                     },
-                  ),
-                ),
-                SizedBox(),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: predictions.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: CircleAvatar(
-                          child: Icon(
-                            Icons.pin_drop,
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text(predictions[index].description!),
-                        onTap: () {
-                          debugPrint("choosed "+  predictions[index].description!);
-                          Navigator.of(context).pop({'choosedLoc':predictions[index].description!.replaceAll(",", "")});
-                        },
-                      );
-                    },
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10, bottom: 10),
-                  child: Image.asset("images/powered_by_google.png"),
-                ),
-              ],
+                  );
+                },
+              ),
             ),
-          ),
-        )
-    );
-
-
+            Container(
+              margin: EdgeInsets.only(top: 10, bottom: 10),
+              child: Image.asset("images/powered_by_google.png"),
+            ),
+          ],
+        ),
+      ),
+    ));
 
     /*Scaffold(
       body: SafeArea(
@@ -276,7 +268,7 @@ class _HomePageState extends State<CustomGooglePlaces> {
             placeId: predictions[index].placeId,
             googlePlace: googlePlace,
           ),
-        ),);*//*
+        ),);*/ /*
                   },
                 ),
               ),
@@ -310,6 +302,7 @@ SizedBox(),
       ),
     );*/
   }
+
   void showSnackBar(String message) {
     final snackBarContent = SnackBar(
       content: Text(
@@ -334,8 +327,6 @@ SizedBox(),
     }
   }
 }
-
-
 
 /*
 class DetailsPage extends StatefulWidget {

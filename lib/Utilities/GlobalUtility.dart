@@ -2,8 +2,8 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:connectivity/connectivity.dart';
 //import 'package:device_info_plus/device_info_plus.dart';
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intelligent_reader_app/Constants/app_strings.dart';

@@ -27,7 +27,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-
   flutter:
     sdk: flutter
   shared_preferences: ^2.0.6
@@ -61,7 +60,10 @@ dependencies:
   flutter_screen_scaling: ^3.3.2+3
   geolocator: ^9.0.1
 
-
+#firebase CM
+  firebase_core: ^2.1.1
+  firebase_messaging: ^14.0.4
+  flutter_local_notifications: ^9.4.0
 
 #  flutter_google_places: ^0.2.4
   #flutter_google_places_autocomplete: 0.1.1
